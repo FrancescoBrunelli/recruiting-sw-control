@@ -1,0 +1,76 @@
+# What I've done:
+- renamed the "control" folder of the repo into "ws" (workspace) and moved it inside home/<user>/eagle
+- activated the vcan following the three commands mentioned inside the repo's README
+- built the Docker image by doing: docker build -t fsproject docker/.		// (Inside ws)
+- to run the docker container I've done: docker run -it --rm --network host fsproject
+
+
+## Loading of the repo inside the docker container
+- "This repository mounted as the workspace. The image expects it at `/home/eagle/ws`"
+
+I've mounted the repo inside the container by doing:
+docker run -it --rm --network host -v $(pwd):/home/eagle/ws fsproject
+
+(where $(pwd) takes your actual path, therefore must be exceduted while being inside home/eagle/wd)
+
+To make the container show GUI apps I've followed these steps:
+- First, add docker to the access control list by doing: xhost +local:docker (for removing it use the same command but with - instead of +)
+- Second: add display/GUI support by doing: -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix
+
+*Notes:*
+- option (--rm) automatically deletes the container when it exits;
+- option (--network host) to link the container to the network (and therefore to the vcan0)
+- option (-v) to mount the repo as workspace inside the container
+- option (-w) sets the specified directory as workspace (basically makes the shell start at that specific path, without you cd-ing into it)
+- option (-e) sets an environment variable inside the container (in my case DISPLAY=$DISPLAY)
+- option (-v /tmp/.X11-unix:/tmp/.X11-unix) mounts the folder holding the X11 socket into the container (by doing so the container gets a path to reach and use the host display)
+
+//docker cp ./home/Desktop/eagle/ CONTAINER:fsproject/home/ws/
+
+**Final docker run command**
+The resulting docker run command is the following:
+
+`xhost +local:docker`
+
+`docker run -it --rm --network host -v $(pwd):home/eagle/ws -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix fsproject`
+
+`xhost -local:docker`
+
+
+
+
+
+
+# Structure of the control repo
+
+.
+├── eagle_msgs
+│   ├── CMakeLists.txt
+│   ├── msg
+│   │   ├── ConeArray.msg
+│   │   └── Cone.msg
+│   └── package.xml
+└── eagle_sim
+    ├── config
+    │   └── track.yaml
+    ├── eagle_sim
+    │   ├── can_gateway.py
+    │   ├── fake_perception.py
+    │   ├── __init__.py
+    │   ├── lateral_controller.py
+    │   ├── track_publisher.py
+    │   ├── track.py
+    │   └── vehicle_sim.py
+    ├── launch
+    │   └── dev.launch.py
+    ├── package.xml
+    ├── resource
+    │   └── eagle_sim
+    ├── rviz
+    │   └── base.rviz
+    ├── setup.cfg
+    └── setup.py
+
+9 directories, 18 files
+
+
