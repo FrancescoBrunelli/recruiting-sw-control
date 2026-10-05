@@ -1,0 +1,62 @@
+running egg_info
+creating ../../build/eagle_sim/eagle_sim.egg-info
+writing ../../build/eagle_sim/eagle_sim.egg-info/PKG-INFO
+writing dependency_links to ../../build/eagle_sim/eagle_sim.egg-info/dependency_links.txt
+writing entry points to ../../build/eagle_sim/eagle_sim.egg-info/entry_points.txt
+writing requirements to ../../build/eagle_sim/eagle_sim.egg-info/requires.txt
+writing top-level names to ../../build/eagle_sim/eagle_sim.egg-info/top_level.txt
+writing manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+reading manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+writing manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/eagle/ws/build/eagle_sim/build
+creating /home/eagle/ws/build/eagle_sim/build/lib
+creating /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/__init__.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/track_publisher.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/can_gateway.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/lateral_controller.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/fake_perception.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/track.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+copying eagle_sim/vehicle_sim.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+running install
+running install_lib
+creating /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/__init__.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/track_publisher.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/can_gateway.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/lateral_controller.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/fake_perception.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/track.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/vehicle_sim.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/track_publisher.py to track_publisher.cpython-310.pyc
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/can_gateway.py to can_gateway.cpython-310.pyc
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/lateral_controller.py to lateral_controller.cpython-310.pyc
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/fake_perception.py to fake_perception.cpython-310.pyc
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/track.py to track.cpython-310.pyc
+byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/vehicle_sim.py to vehicle_sim.cpython-310.pyc
+running install_data
+creating /home/eagle/ws/install/eagle_sim/share/ament_index
+creating /home/eagle/ws/install/eagle_sim/share/ament_index/resource_index
+creating /home/eagle/ws/install/eagle_sim/share/ament_index/resource_index/packages
+copying resource/eagle_sim -> /home/eagle/ws/install/eagle_sim/share/ament_index/resource_index/packages
+copying package.xml -> /home/eagle/ws/install/eagle_sim/share/eagle_sim
+creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/config
+copying config/track.yaml -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/config
+creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/rviz
+copying rviz/base.rviz -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/rviz
+creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/launch
+copying launch/dev.launch.py -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/launch
+creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/can
+copying ../../can/eagle_task.dbc -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/can
+running install_egg_info
+Copying ../../build/eagle_sim/eagle_sim.egg-info to /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim-0.1.0-py3.10.egg-info
+running install_scripts
+Installing can_gateway script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+Installing fake_perception script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+Installing lateral_controller script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+Installing track_publisher script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+Installing vehicle_sim script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+writing list of installed files to '/home/eagle/ws/build/eagle_sim/install.log'

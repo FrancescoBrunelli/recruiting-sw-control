@@ -1,0 +1,4 @@
+Invoking command in '/home/eagle/ws/build/ctrl': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_sim:/opt/ros/humble /usr/bin/cmake --build /home/eagle/ws/build/ctrl -- -j4 -l4
+Invoked command in '/home/eagle/ws/build/ctrl' returned '0': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_sim:/opt/ros/humble /usr/bin/cmake --build /home/eagle/ws/build/ctrl -- -j4 -l4
+Invoking command in '/home/eagle/ws/build/ctrl': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_sim:/opt/ros/humble /usr/bin/cmake --install /home/eagle/ws/build/ctrl
+Invoked command in '/home/eagle/ws/build/ctrl' returned '0': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_sim:/opt/ros/humble /usr/bin/cmake --install /home/eagle/ws/build/ctrl

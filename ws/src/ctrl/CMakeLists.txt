@@ -34,6 +34,6 @@ ament_target_dependencies(ctrl rclcpp eagle_msgs)
 install(TARGETS
     ctrl
 
-    DESTINATION lib/${project})
+    DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

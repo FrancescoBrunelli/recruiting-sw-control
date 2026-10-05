@@ -1,0 +1,64 @@
+[0.824s] Invoking command in '/home/eagle/ws/src/eagle_sim': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl PYTHONPATH=/home/eagle/ws/build/eagle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/eagle_sim build --build-base /home/eagle/ws/build/eagle_sim/build install --record /home/eagle/ws/build/eagle_sim/install.log --install-scripts $base/lib/eagle_sim --single-version-externally-managed install_data
+[1.359s] running egg_info
+[1.361s] creating ../../build/eagle_sim/eagle_sim.egg-info
+[1.361s] writing ../../build/eagle_sim/eagle_sim.egg-info/PKG-INFO
+[1.362s] writing dependency_links to ../../build/eagle_sim/eagle_sim.egg-info/dependency_links.txt
+[1.362s] writing entry points to ../../build/eagle_sim/eagle_sim.egg-info/entry_points.txt
+[1.362s] writing requirements to ../../build/eagle_sim/eagle_sim.egg-info/requires.txt
+[1.363s] writing top-level names to ../../build/eagle_sim/eagle_sim.egg-info/top_level.txt
+[1.364s] writing manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+[1.367s] reading manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+[1.369s] writing manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+[1.370s] running build
+[1.370s] running build_py
+[1.370s] creating /home/eagle/ws/build/eagle_sim/build
+[1.371s] creating /home/eagle/ws/build/eagle_sim/build/lib
+[1.371s] creating /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.371s] copying eagle_sim/__init__.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.371s] copying eagle_sim/track_publisher.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.373s] copying eagle_sim/can_gateway.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.373s] copying eagle_sim/lateral_controller.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.374s] copying eagle_sim/fake_perception.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.374s] copying eagle_sim/track.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.375s] copying eagle_sim/vehicle_sim.py -> /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim
+[1.376s] running install
+[1.377s] running install_lib
+[1.379s] creating /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.380s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/__init__.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.381s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/track_publisher.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.381s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/can_gateway.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.382s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/lateral_controller.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.382s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/fake_perception.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.383s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/track.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.384s] copying /home/eagle/ws/build/eagle_sim/build/lib/eagle_sim/vehicle_sim.py -> /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim
+[1.384s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/__init__.py to __init__.cpython-310.pyc
+[1.384s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/track_publisher.py to track_publisher.cpython-310.pyc
+[1.386s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/can_gateway.py to can_gateway.cpython-310.pyc
+[1.389s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/lateral_controller.py to lateral_controller.cpython-310.pyc
+[1.391s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/fake_perception.py to fake_perception.cpython-310.pyc
+[1.393s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/track.py to track.cpython-310.pyc
+[1.395s] byte-compiling /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim/vehicle_sim.py to vehicle_sim.cpython-310.pyc
+[1.400s] running install_data
+[1.400s] creating /home/eagle/ws/install/eagle_sim/share/ament_index
+[1.401s] creating /home/eagle/ws/install/eagle_sim/share/ament_index/resource_index
+[1.401s] creating /home/eagle/ws/install/eagle_sim/share/ament_index/resource_index/packages
+[1.402s] copying resource/eagle_sim -> /home/eagle/ws/install/eagle_sim/share/ament_index/resource_index/packages
+[1.403s] copying package.xml -> /home/eagle/ws/install/eagle_sim/share/eagle_sim
+[1.404s] creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/config
+[1.404s] copying config/track.yaml -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/config
+[1.405s] creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/rviz
+[1.405s] copying rviz/base.rviz -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/rviz
+[1.405s] creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/launch
+[1.405s] copying launch/dev.launch.py -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/launch
+[1.405s] creating /home/eagle/ws/install/eagle_sim/share/eagle_sim/can
+[1.406s] copying ../../can/eagle_task.dbc -> /home/eagle/ws/install/eagle_sim/share/eagle_sim/can
+[1.406s] running install_egg_info
+[1.410s] Copying ../../build/eagle_sim/eagle_sim.egg-info to /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim-0.1.0-py3.10.egg-info
+[1.413s] running install_scripts
+[1.480s] Installing can_gateway script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.481s] Installing fake_perception script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.481s] Installing lateral_controller script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.482s] Installing track_publisher script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.482s] Installing vehicle_sim script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.483s] writing list of installed files to '/home/eagle/ws/build/eagle_sim/install.log'
+[1.550s] Invoked command in '/home/eagle/ws/src/eagle_sim' returned '0': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl PYTHONPATH=/home/eagle/ws/build/eagle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/eagle_sim build --build-base /home/eagle/ws/build/eagle_sim/build install --record /home/eagle/ws/build/eagle_sim/install.log --install-scripts $base/lib/eagle_sim --single-version-externally-managed install_data

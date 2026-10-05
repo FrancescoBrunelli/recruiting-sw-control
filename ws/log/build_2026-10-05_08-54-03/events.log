@@ -1,0 +1,78 @@
+[0.000000] (-) TimerEvent: {}
+[0.001078] (-) JobUnselected: {'identifier': 'eagle_msgs'}
+[0.001212] (ctrl) JobQueued: {'identifier': 'ctrl', 'dependencies': OrderedDict([('eagle_msgs', '/home/eagle/ws/install/eagle_msgs')])}
+[0.001304] (eagle_sim) JobQueued: {'identifier': 'eagle_sim', 'dependencies': OrderedDict([('eagle_msgs', '/home/eagle/ws/install/eagle_msgs')])}
+[0.001378] (ctrl) JobStarted: {'identifier': 'ctrl'}
+[0.024402] (eagle_sim) JobStarted: {'identifier': 'eagle_sim'}
+[0.043666] (ctrl) JobProgress: {'identifier': 'ctrl', 'progress': 'cmake'}
+[0.048244] (ctrl) JobProgress: {'identifier': 'ctrl', 'progress': 'build'}
+[0.048425] (ctrl) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eagle/ws/build/ctrl', '--', '-j4', '-l4'], 'cwd': '/home/eagle/ws/build/ctrl', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/eagle/ws/install/eagle_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/eagle/ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/eagle/ws/install/eagle_sim:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_msgs:/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/ctrl'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_sim:/opt/ros/humble')]), 'shell': False}
+[0.098802] (-) TimerEvent: {}
+[0.185643] (ctrl) StdoutLine: {'line': b'[100%] Built target ctrl\n'}
+[0.198947] (-) TimerEvent: {}
+[0.299810] (-) TimerEvent: {}
+[0.400328] (-) TimerEvent: {}
+[0.500809] (-) TimerEvent: {}
+[0.593750] (ctrl) CommandEnded: {'returncode': 0}
+[0.596341] (ctrl) JobProgress: {'identifier': 'ctrl', 'progress': 'install'}
+[0.600947] (-) TimerEvent: {}
+[0.617810] (ctrl) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eagle/ws/build/ctrl'], 'cwd': '/home/eagle/ws/build/ctrl', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/eagle/ws/install/eagle_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/eagle/ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/eagle/ws/install/eagle_sim:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_msgs:/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/ctrl'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_sim:/opt/ros/humble')]), 'shell': False}
+[0.635850] (ctrl) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.636368] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/lib/ctrl/ctrl\n'}
+[0.637182] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/package_run_dependencies/ctrl\n'}
+[0.638120] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/parent_prefix_path/ctrl\n'}
+[0.639166] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/environment/ament_prefix_path.sh\n'}
+[0.639498] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/environment/ament_prefix_path.dsv\n'}
+[0.639801] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/environment/path.sh\n'}
+[0.640088] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/environment/path.dsv\n'}
+[0.640722] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.bash\n'}
+[0.641018] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.sh\n'}
+[0.641338] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.zsh\n'}
+[0.641770] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.dsv\n'}
+[0.642078] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/package.dsv\n'}
+[0.642376] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/packages/ctrl\n'}
+[0.642640] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/cmake/ctrlConfig.cmake\n'}
+[0.642925] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/cmake/ctrlConfig-version.cmake\n'}
+[0.643213] (ctrl) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/ctrl/share/ctrl/package.xml\n'}
+[0.646257] (ctrl) CommandEnded: {'returncode': 0}
+[0.701315] (-) TimerEvent: {}
+[0.704917] (ctrl) JobEnded: {'identifier': 'ctrl', 'rc': 0}
+[0.801433] (-) TimerEvent: {}
+[0.901899] (-) TimerEvent: {}
+[1.002344] (-) TimerEvent: {}
+[1.102794] (-) TimerEvent: {}
+[1.203219] (-) TimerEvent: {}
+[1.303733] (-) TimerEvent: {}
+[1.355489] (eagle_sim) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/eagle_sim', 'build', '--build-base', '/home/eagle/ws/build/eagle_sim/build', 'install', '--record', '/home/eagle/ws/build/eagle_sim/install.log', '--install-scripts', '$base/lib/eagle_sim', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/eagle/ws/src/eagle_sim', 'env': {'HOSTNAME': 'francesco-macbookair', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/eagle/ws/install/eagle_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/eagle', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/home/eagle/ws/install', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/home/eagle/ws/install/eagle_sim:/home/eagle/ws/install/ctrl:/home/eagle/ws/install/eagle_msgs:/opt/ros/humble', 'PWD': '/home/eagle/ws/build/eagle_sim', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/home/eagle/ws/build/eagle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl'}, 'shell': False}
+[1.403844] (-) TimerEvent: {}
+[1.504287] (-) TimerEvent: {}
+[1.605093] (-) TimerEvent: {}
+[1.705547] (-) TimerEvent: {}
+[1.805978] (-) TimerEvent: {}
+[1.814397] (eagle_sim) StdoutLine: {'line': b'running egg_info\n'}
+[1.816830] (eagle_sim) StdoutLine: {'line': b'writing ../../build/eagle_sim/eagle_sim.egg-info/PKG-INFO\n'}
+[1.817434] (eagle_sim) StdoutLine: {'line': b'writing dependency_links to ../../build/eagle_sim/eagle_sim.egg-info/dependency_links.txt\n'}
+[1.817844] (eagle_sim) StdoutLine: {'line': b'writing entry points to ../../build/eagle_sim/eagle_sim.egg-info/entry_points.txt\n'}
+[1.818261] (eagle_sim) StdoutLine: {'line': b'writing requirements to ../../build/eagle_sim/eagle_sim.egg-info/requires.txt\n'}
+[1.818710] (eagle_sim) StdoutLine: {'line': b'writing top-level names to ../../build/eagle_sim/eagle_sim.egg-info/top_level.txt\n'}
+[1.823889] (eagle_sim) StdoutLine: {'line': b"reading manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'\n"}
+[1.827247] (eagle_sim) StdoutLine: {'line': b"writing manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'\n"}
+[1.828422] (eagle_sim) StdoutLine: {'line': b'running build\n'}
+[1.828747] (eagle_sim) StdoutLine: {'line': b'running build_py\n'}
+[1.829605] (eagle_sim) StdoutLine: {'line': b'running install\n'}
+[1.831022] (eagle_sim) StdoutLine: {'line': b'running install_lib\n'}
+[1.835248] (eagle_sim) StdoutLine: {'line': b'running install_data\n'}
+[1.836275] (eagle_sim) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.841922] (eagle_sim) StdoutLine: {'line': b"removing '/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim-0.1.0-py3.10.egg-info' (and everything under it)\n"}
+[1.844190] (eagle_sim) StdoutLine: {'line': b'Copying ../../build/eagle_sim/eagle_sim.egg-info to /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim-0.1.0-py3.10.egg-info\n'}
+[1.846720] (eagle_sim) StdoutLine: {'line': b'running install_scripts\n'}
+[1.893919] (eagle_sim) StdoutLine: {'line': b'Installing can_gateway script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim\n'}
+[1.894444] (eagle_sim) StdoutLine: {'line': b'Installing fake_perception script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim\n'}
+[1.894857] (eagle_sim) StdoutLine: {'line': b'Installing lateral_controller script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim\n'}
+[1.895243] (eagle_sim) StdoutLine: {'line': b'Installing track_publisher script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim\n'}
+[1.895629] (eagle_sim) StdoutLine: {'line': b'Installing vehicle_sim script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim\n'}
+[1.896599] (eagle_sim) StdoutLine: {'line': b"writing list of installed files to '/home/eagle/ws/build/eagle_sim/install.log'\n"}
+[1.906233] (-) TimerEvent: {}
+[1.950543] (eagle_sim) CommandEnded: {'returncode': 0}
+[1.974029] (eagle_sim) JobEnded: {'identifier': 'eagle_sim', 'rc': 0}
+[1.976507] (-) EventReactorShutdown: {}

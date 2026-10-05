@@ -1,0 +1,25 @@
+[1.130s] Invoking command in '/home/eagle/ws/src/eagle_sim': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl PYTHONPATH=/home/eagle/ws/build/eagle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/eagle_sim build --build-base /home/eagle/ws/build/eagle_sim/build install --record /home/eagle/ws/build/eagle_sim/install.log --install-scripts $base/lib/eagle_sim --single-version-externally-managed install_data
+[1.566s] running egg_info
+[1.569s] writing ../../build/eagle_sim/eagle_sim.egg-info/PKG-INFO
+[1.571s] writing dependency_links to ../../build/eagle_sim/eagle_sim.egg-info/dependency_links.txt
+[1.571s] writing entry points to ../../build/eagle_sim/eagle_sim.egg-info/entry_points.txt
+[1.572s] writing requirements to ../../build/eagle_sim/eagle_sim.egg-info/requires.txt
+[1.572s] writing top-level names to ../../build/eagle_sim/eagle_sim.egg-info/top_level.txt
+[1.575s] reading manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+[1.578s] writing manifest file '../../build/eagle_sim/eagle_sim.egg-info/SOURCES.txt'
+[1.578s] running build
+[1.579s] running build_py
+[1.580s] running install
+[1.581s] running install_lib
+[1.586s] running install_data
+[1.587s] running install_egg_info
+[1.592s] removing '/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim-0.1.0-py3.10.egg-info' (and everything under it)
+[1.593s] Copying ../../build/eagle_sim/eagle_sim.egg-info to /home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages/eagle_sim-0.1.0-py3.10.egg-info
+[1.595s] running install_scripts
+[1.643s] Installing can_gateway script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.644s] Installing fake_perception script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.644s] Installing lateral_controller script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.645s] Installing track_publisher script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.645s] Installing vehicle_sim script to /home/eagle/ws/install/eagle_sim/lib/eagle_sim
+[1.647s] writing list of installed files to '/home/eagle/ws/build/eagle_sim/install.log'
+[1.690s] Invoked command in '/home/eagle/ws/src/eagle_sim' returned '0': CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/home/eagle/ws/install/ctrl PYTHONPATH=/home/eagle/ws/build/eagle_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eagle/ws/install/eagle_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/eagle_sim build --build-base /home/eagle/ws/build/eagle_sim/build install --record /home/eagle/ws/build/eagle_sim/install.log --install-scripts $base/lib/eagle_sim --single-version-externally-managed install_data

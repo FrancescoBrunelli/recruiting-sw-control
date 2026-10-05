@@ -1,0 +1,69 @@
+[0.020s] Invoking command in '/home/eagle/ws/build/ctrl': AMENT_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/eagle/ws/install/eagle_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/eagle/ws/src/ctrl -DCMAKE_INSTALL_PREFIX=/home/eagle/ws/install/ctrl
+[0.117s] -- The C compiler identification is GNU 11.4.0
+[0.253s] -- The CXX compiler identification is GNU 11.4.0
+[0.272s] -- Detecting C compiler ABI info
+[0.454s] -- Detecting C compiler ABI info - done
+[0.475s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.475s] -- Detecting C compile features
+[0.477s] -- Detecting C compile features - done
+[0.485s] -- Detecting CXX compiler ABI info
+[0.710s] -- Detecting CXX compiler ABI info - done
+[0.745s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.745s] -- Detecting CXX compile features
+[0.746s] -- Detecting CXX compile features - done
+[0.754s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.153s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.429s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[1.563s] -- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.583s] -- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.607s] -- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.651s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.701s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.888s] -- Found rmw_implementation_cmake: 6.1.3 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.896s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.174s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.243s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.353s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.389s] -- Looking for pthread.h
+[2.576s] -- Looking for pthread.h - found
+[2.577s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.744s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.747s] -- Found Threads: TRUE  
+[2.866s] -- Found eagle_msgs: 0.1.0 (/home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake)
+[2.921s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.069s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.069s] -- Configured cppcheck include dirs: 
+[3.070s] -- Configured cppcheck exclude dirs and/or files: 
+[3.072s] -- Added test 'lint_cmake' to check CMake code style
+[3.074s] -- Added test 'uncrustify' to check C / C++ code style
+[3.074s] -- Configured uncrustify additional arguments: 
+[3.076s] -- Added test 'xmllint' to check XML markup files
+[3.079s] -- Configuring done
+[3.095s] -- Generating done
+[3.102s] -- Build files have been written to: /home/eagle/ws/build/ctrl
+[3.114s] Invoked command in '/home/eagle/ws/build/ctrl' returned '0': AMENT_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/eagle/ws/install/eagle_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/eagle/ws/src/ctrl -DCMAKE_INSTALL_PREFIX=/home/eagle/ws/install/ctrl
+[3.118s] Invoking command in '/home/eagle/ws/build/ctrl': AMENT_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/eagle/ws/install/eagle_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eagle/ws/build/ctrl -- -j4 -l4
+[3.184s] [ 50%] [32mBuilding CXX object CMakeFiles/ctrl.dir/src/ctrl.cpp.o[0m
+[7.381s] [100%] [32m[1mLinking CXX executable ctrl[0m
+[7.588s] [100%] Built target ctrl
+[7.605s] Invoked command in '/home/eagle/ws/build/ctrl' returned '0': AMENT_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/eagle/ws/install/eagle_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/eagle/ws/build/ctrl -- -j4 -l4
+[7.608s] Invoking command in '/home/eagle/ws/build/ctrl': AMENT_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/eagle/ws/install/eagle_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eagle/ws/build/ctrl
+[7.620s] -- Install configuration: ""
+[7.621s] -- Installing: /home/eagle/ws/install/ctrl/lib/ctrl/ctrl
+[7.623s] -- Set runtime path of "/home/eagle/ws/install/ctrl/lib/ctrl/ctrl" to ""
+[7.624s] -- Installing: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/package_run_dependencies/ctrl
+[7.624s] -- Installing: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/parent_prefix_path/ctrl
+[7.625s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/ament_prefix_path.sh
+[7.625s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/ament_prefix_path.dsv
+[7.626s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/path.sh
+[7.627s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/path.dsv
+[7.627s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.bash
+[7.628s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.sh
+[7.628s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.zsh
+[7.629s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.dsv
+[7.629s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/package.dsv
+[7.630s] -- Installing: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/packages/ctrl
+[7.631s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/cmake/ctrlConfig.cmake
+[7.631s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/cmake/ctrlConfig-version.cmake
+[7.632s] -- Installing: /home/eagle/ws/install/ctrl/share/ctrl/package.xml
+[7.636s] Invoked command in '/home/eagle/ws/build/ctrl' returned '0': AMENT_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/eagle/ws/install/eagle_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/eagle/ws/install/eagle_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/eagle/ws/build/ctrl

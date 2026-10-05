@@ -1,0 +1,524 @@
+[0.000000] (-) TimerEvent: {}
+[0.000886] (-) JobUnselected: {'identifier': 'eagle_sim'}
+[0.000973] (eagle_msgs) JobQueued: {'identifier': 'eagle_msgs', 'dependencies': OrderedDict()}
+[0.001016] (ctrl) JobQueued: {'identifier': 'ctrl', 'dependencies': OrderedDict([('eagle_msgs', '/home/eagle/ws/install/eagle_msgs')])}
+[0.001055] (eagle_msgs) JobStarted: {'identifier': 'eagle_msgs'}
+[0.016777] (eagle_msgs) JobProgress: {'identifier': 'eagle_msgs', 'progress': 'cmake'}
+[0.017596] (eagle_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/eagle/ws/src/eagle_msgs', '-DCMAKE_INSTALL_PREFIX=/home/eagle/ws/install/eagle_msgs'], 'cwd': '/home/eagle/ws/build/eagle_msgs', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/eagle_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.098508] (-) TimerEvent: {}
+[0.198913] (-) TimerEvent: {}
+[0.299649] (-) TimerEvent: {}
+[0.313305] (eagle_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.399785] (-) TimerEvent: {}
+[0.461290] (eagle_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.477356] (eagle_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.499950] (-) TimerEvent: {}
+[0.591330] (eagle_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.600093] (-) TimerEvent: {}
+[0.604808] (eagle_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.605876] (eagle_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.607437] (eagle_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.615949] (eagle_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.700180] (-) TimerEvent: {}
+[0.726251] (eagle_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.737660] (eagle_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.738189] (eagle_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.738935] (eagle_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.748709] (eagle_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.800293] (-) TimerEvent: {}
+[0.900648] (-) TimerEvent: {}
+[0.935619] (eagle_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.000739] (-) TimerEvent: {}
+[1.073591] (eagle_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[1.082078] (eagle_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.095082] (eagle_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.100869] (-) TimerEvent: {}
+[1.174793] (eagle_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.200981] (-) TimerEvent: {}
+[1.246656] (eagle_msgs) StdoutLine: {'line': b'-- Found std_msgs: 4.9.2 (/opt/ros/humble/share/std_msgs/cmake)\n'}
+[1.300278] (eagle_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.2 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[1.301078] (-) TimerEvent: {}
+[1.401511] (-) TimerEvent: {}
+[1.501889] (-) TimerEvent: {}
+[1.602527] (-) TimerEvent: {}
+[1.702853] (-) TimerEvent: {}
+[1.708988] (eagle_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.802944] (-) TimerEvent: {}
+[1.903261] (-) TimerEvent: {}
+[2.003599] (-) TimerEvent: {}
+[2.020975] (eagle_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.103709] (-) TimerEvent: {}
+[2.204166] (-) TimerEvent: {}
+[2.305174] (-) TimerEvent: {}
+[2.406069] (-) TimerEvent: {}
+[2.466617] (eagle_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.500754] (eagle_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[2.504538] (eagle_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[2.506176] (-) TimerEvent: {}
+[2.540492] (eagle_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[2.540895] (eagle_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.541077] (eagle_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[2.541240] (eagle_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[2.567853] (eagle_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[2.606285] (-) TimerEvent: {}
+[2.706620] (-) TimerEvent: {}
+[2.787341] (eagle_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.806730] (-) TimerEvent: {}
+[2.844596] (eagle_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[2.862373] (eagle_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/eagle/ws/build/eagle_msgs\n'}
+[2.872286] (eagle_msgs) CommandEnded: {'returncode': 0}
+[2.873144] (eagle_msgs) JobProgress: {'identifier': 'eagle_msgs', 'progress': 'build'}
+[2.874707] (eagle_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eagle/ws/build/eagle_msgs', '--', '-j4', '-l4'], 'cwd': '/home/eagle/ws/build/eagle_msgs', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/eagle_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[2.906875] (-) TimerEvent: {}
+[2.931494] (eagle_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.947379] (eagle_msgs) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[2.954249] (eagle_msgs) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.994138] (eagle_msgs) StdoutLine: {'line': b'[  7%] Built target ament_cmake_python_copy_eagle_msgs\n'}
+[3.006978] (-) TimerEvent: {}
+[3.109171] (-) TimerEvent: {}
+[3.212175] (-) TimerEvent: {}
+[3.314779] (-) TimerEvent: {}
+[3.416802] (-) TimerEvent: {}
+[3.521173] (-) TimerEvent: {}
+[3.621743] (-) TimerEvent: {}
+[3.675254] (eagle_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[3.679788] (eagle_msgs) StdoutLine: {'line': b'creating eagle_msgs.egg-info\n'}
+[3.683011] (eagle_msgs) StdoutLine: {'line': b'writing eagle_msgs.egg-info/PKG-INFO\n'}
+[3.687194] (eagle_msgs) StdoutLine: {'line': b'writing dependency_links to eagle_msgs.egg-info/dependency_links.txt\n'}
+[3.687838] (eagle_msgs) StdoutLine: {'line': b'writing top-level names to eagle_msgs.egg-info/top_level.txt\n'}
+[3.689802] (eagle_msgs) StdoutLine: {'line': b"writing manifest file 'eagle_msgs.egg-info/SOURCES.txt'\n"}
+[3.703918] (eagle_msgs) StdoutLine: {'line': b"reading manifest file 'eagle_msgs.egg-info/SOURCES.txt'\n"}
+[3.706539] (eagle_msgs) StdoutLine: {'line': b"writing manifest file 'eagle_msgs.egg-info/SOURCES.txt'\n"}
+[3.721853] (-) TimerEvent: {}
+[3.771432] (eagle_msgs) StdoutLine: {'line': b'[  7%] Built target ament_cmake_python_build_eagle_msgs_egg\n'}
+[3.792156] (eagle_msgs) StdoutLine: {'line': b'[  7%] Built target eagle_msgs__rs\n'}
+[3.821960] (-) TimerEvent: {}
+[3.924185] (-) TimerEvent: {}
+[3.935064] (eagle_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_generator_c.dir/rosidl_generator_c/eagle_msgs/msg/detail/cone__functions.c.o\x1b[0m\n'}
+[3.935742] (eagle_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_generator_c.dir/rosidl_generator_c/eagle_msgs/msg/detail/cone_array__functions.c.o\x1b[0m\n'}
+[4.008297] (eagle_msgs) StdoutLine: {'line': b'[ 12%] Built target eagle_msgs__cpp\n'}
+[4.024526] (-) TimerEvent: {}
+[4.027439] (eagle_msgs) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[4.027773] (eagle_msgs) StdoutLine: {'line': b'[ 17%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[4.078913] (eagle_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking C shared library libeagle_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[4.081119] (eagle_msgs) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[4.125180] (-) TimerEvent: {}
+[4.164607] (eagle_msgs) StdoutLine: {'line': b'[ 22%] Built target eagle_msgs__rosidl_generator_c\n'}
+[4.185170] (eagle_msgs) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[4.226180] (-) TimerEvent: {}
+[4.326667] (-) TimerEvent: {}
+[4.427402] (-) TimerEvent: {}
+[4.528841] (-) TimerEvent: {}
+[4.630212] (-) TimerEvent: {}
+[4.733360] (-) TimerEvent: {}
+[4.833893] (-) TimerEvent: {}
+[4.920703] (eagle_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/eagle_msgs/msg/cone__type_support.cpp.o\x1b[0m\n'}
+[4.934009] (-) TimerEvent: {}
+[4.940830] (eagle_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/eagle_msgs/msg/detail/cone__type_support.cpp.o\x1b[0m\n'}
+[4.997866] (eagle_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/eagle_msgs/msg/detail/dds_fastrtps/cone__type_support.cpp.o\x1b[0m\n'}
+[5.034133] (-) TimerEvent: {}
+[5.134542] (-) TimerEvent: {}
+[5.228150] (eagle_msgs) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/eagle_msgs/msg/detail/cone__type_support_c.cpp.o\x1b[0m\n'}
+[5.235359] (-) TimerEvent: {}
+[5.337694] (-) TimerEvent: {}
+[5.438187] (-) TimerEvent: {}
+[5.540557] (-) TimerEvent: {}
+[5.643980] (-) TimerEvent: {}
+[5.736182] (eagle_msgs) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/eagle_msgs/msg/cone_array__type_support.cpp.o\x1b[0m\n'}
+[5.744101] (-) TimerEvent: {}
+[5.845846] (-) TimerEvent: {}
+[5.947857] (-) TimerEvent: {}
+[6.027489] (eagle_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/eagle_msgs/msg/detail/dds_fastrtps/cone_array__type_support.cpp.o\x1b[0m\n'}
+[6.040543] (eagle_msgs) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/eagle_msgs/msg/detail/cone_array__type_support.cpp.o\x1b[0m\n'}
+[6.047995] (-) TimerEvent: {}
+[6.148443] (-) TimerEvent: {}
+[6.219418] (eagle_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/eagle_msgs/msg/detail/cone_array__type_support_c.cpp.o\x1b[0m\n'}
+[6.248643] (-) TimerEvent: {}
+[6.349398] (-) TimerEvent: {}
+[6.450955] (-) TimerEvent: {}
+[6.474772] (eagle_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32m\x1b[1mLinking CXX shared library libeagle_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[6.551076] (-) TimerEvent: {}
+[6.581189] (eagle_msgs) StdoutLine: {'line': b'[ 47%] Built target eagle_msgs__rosidl_typesupport_cpp\n'}
+[6.611443] (eagle_msgs) StdoutLine: {'line': b'[ 50%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[6.651183] (-) TimerEvent: {}
+[6.751814] (-) TimerEvent: {}
+[6.852503] (-) TimerEvent: {}
+[6.953654] (-) TimerEvent: {}
+[7.056433] (-) TimerEvent: {}
+[7.159632] (-) TimerEvent: {}
+[7.205458] (eagle_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32m\x1b[1mLinking CXX shared library libeagle_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[7.257720] (eagle_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX shared library libeagle_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[7.259741] (-) TimerEvent: {}
+[7.305012] (eagle_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32m\x1b[1mLinking CXX shared library libeagle_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[7.360194] (-) TimerEvent: {}
+[7.443414] (eagle_msgs) StdoutLine: {'line': b'[ 57%] Built target eagle_msgs__rosidl_typesupport_introspection_cpp\n'}
+[7.460313] (-) TimerEvent: {}
+[7.475543] (eagle_msgs) StdoutLine: {'line': b'[ 60%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[7.508448] (eagle_msgs) StdoutLine: {'line': b'[ 60%] Built target eagle_msgs__rosidl_typesupport_fastrtps_c\n'}
+[7.559798] (eagle_msgs) StdoutLine: {'line': b'[ 60%] Built target eagle_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[7.560680] (-) TimerEvent: {}
+[7.631670] (eagle_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/eagle_msgs/msg/detail/cone__type_support.c.o\x1b[0m\n'}
+[7.632700] (eagle_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/eagle_msgs/msg/detail/cone_array__type_support.c.o\x1b[0m\n'}
+[7.660828] (-) TimerEvent: {}
+[7.714777] (eagle_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking C shared library libeagle_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[7.760941] (-) TimerEvent: {}
+[7.769191] (eagle_msgs) StdoutLine: {'line': b'[ 67%] Built target eagle_msgs__rosidl_typesupport_introspection_c\n'}
+[7.861081] (-) TimerEvent: {}
+[7.961494] (-) TimerEvent: {}
+[8.004691] (eagle_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/eagle_msgs/msg/cone__type_support.cpp.o\x1b[0m\n'}
+[8.005073] (eagle_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/eagle_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/eagle_msgs/msg/cone_array__type_support.cpp.o\x1b[0m\n'}
+[8.051147] (eagle_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library libeagle_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[8.061603] (-) TimerEvent: {}
+[8.106487] (eagle_msgs) StdoutLine: {'line': b'[ 75%] Built target eagle_msgs__rosidl_typesupport_c\n'}
+[8.131517] (eagle_msgs) StdoutLine: {'line': b'[ 75%] Built target eagle_msgs\n'}
+[8.157587] (eagle_msgs) StdoutLine: {'line': b'[ 77%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[8.161714] (-) TimerEvent: {}
+[8.262496] (-) TimerEvent: {}
+[8.363126] (-) TimerEvent: {}
+[8.463523] (-) TimerEvent: {}
+[8.563980] (-) TimerEvent: {}
+[8.664394] (-) TimerEvent: {}
+[8.764777] (-) TimerEvent: {}
+[8.827769] (eagle_msgs) StdoutLine: {'line': b'[ 77%] Built target eagle_msgs__py\n'}
+[8.860565] (eagle_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_generator_py.dir/rosidl_generator_py/eagle_msgs/msg/_cone_array_s.c.o\x1b[0m\n'}
+[8.860800] (eagle_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_generator_py.dir/rosidl_generator_py/eagle_msgs/msg/_cone_s.c.o\x1b[0m\n'}
+[8.865190] (-) TimerEvent: {}
+[8.966451] (-) TimerEvent: {}
+[9.054650] (eagle_msgs) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/eagle_msgs/libeagle_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[9.066538] (-) TimerEvent: {}
+[9.114387] (eagle_msgs) StdoutLine: {'line': b'[ 85%] Built target eagle_msgs__rosidl_generator_py\n'}
+[9.149089] (eagle_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/eagle_msgs/_eagle_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[9.150619] (eagle_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/eagle_msgs/_eagle_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[9.158432] (eagle_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/eagle_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/eagle_msgs/_eagle_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[9.167399] (-) TimerEvent: {}
+[9.267929] (-) TimerEvent: {}
+[9.356788] (eagle_msgs) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/eagle_msgs/eagle_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.368043] (-) TimerEvent: {}
+[9.373807] (eagle_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/eagle_msgs/eagle_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.414669] (eagle_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/eagle_msgs/eagle_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.463730] (eagle_msgs) StdoutLine: {'line': b'[100%] Built target eagle_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[9.467294] (eagle_msgs) StdoutLine: {'line': b'[100%] Built target eagle_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[9.468783] (-) TimerEvent: {}
+[9.496718] (eagle_msgs) StdoutLine: {'line': b'[100%] Built target eagle_msgs__rosidl_typesupport_c__pyext\n'}
+[9.514677] (eagle_msgs) CommandEnded: {'returncode': 0}
+[9.516431] (eagle_msgs) JobProgress: {'identifier': 'eagle_msgs', 'progress': 'install'}
+[9.530378] (eagle_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eagle/ws/build/eagle_msgs'], 'cwd': '/home/eagle/ws/build/eagle_msgs', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/eagle_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[9.542763] (eagle_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.543503] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/ament_index/resource_index/rosidl_interfaces/eagle_msgs\n'}
+[9.543865] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs\n'}
+[9.544331] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg\n'}
+[9.544589] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[9.544951] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/cone.h\n'}
+[9.545299] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail\n'}
+[9.545493] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__type_support.h\n'}
+[9.545782] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__functions.c\n'}
+[9.546048] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__functions.c\n'}
+[9.546376] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__functions.h\n'}
+[9.546623] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__type_support.h\n'}
+[9.546942] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__functions.h\n'}
+[9.547209] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__struct.h\n'}
+[9.547495] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__struct.h\n'}
+[9.547731] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/cone_array.h\n'}
+[9.547908] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/library_path.sh\n'}
+[9.548097] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/library_path.dsv\n'}
+[9.548536] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_generator_c.so\n'}
+[9.549081] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_generator_c.so" to ""\n'}
+[9.549561] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs\n'}
+[9.549841] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg\n'}
+[9.550095] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[9.550538] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail\n'}
+[9.550788] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__rosidl_typesupport_fastrtps_c.h\n'}
+[9.551057] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__rosidl_typesupport_fastrtps_c.h\n'}
+[9.551410] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[9.551838] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[9.552647] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs\n'}
+[9.552925] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg\n'}
+[9.553526] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[9.553962] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail\n'}
+[9.554322] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__type_support.c\n'}
+[9.554581] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__rosidl_typesupport_introspection_c.h\n'}
+[9.554833] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__rosidl_typesupport_introspection_c.h\n'}
+[9.555306] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__type_support.c\n'}
+[9.555635] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_introspection_c.so\n'}
+[9.555826] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[9.556210] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_c.so\n'}
+[9.556429] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_c.so" to ""\n'}
+[9.556591] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs\n'}
+[9.556741] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg\n'}
+[9.556930] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/cone_array.hpp\n'}
+[9.557163] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[9.557754] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/cone.hpp\n'}
+[9.558516] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail\n'}
+[9.559775] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__builder.hpp\n'}
+[9.560721] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__builder.hpp\n'}
+[9.561009] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__type_support.hpp\n'}
+[9.561283] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__traits.hpp\n'}
+[9.561466] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__struct.hpp\n'}
+[9.562051] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__traits.hpp\n'}
+[9.562632] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__type_support.hpp\n'}
+[9.562955] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__struct.hpp\n'}
+[9.563229] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs\n'}
+[9.563818] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg\n'}
+[9.564282] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[9.564567] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail\n'}
+[9.564912] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.565178] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.565309] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/dds_fastrtps\n'}
+[9.565529] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[9.565769] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[9.565931] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs\n'}
+[9.566297] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg\n'}
+[9.566464] (eagle_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail\n'}
+[9.566657] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__type_support.cpp\n'}
+[9.566824] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.566979] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone_array__type_support.cpp\n'}
+[9.567154] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/include/eagle_msgs/eagle_msgs/msg/detail/cone__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.567320] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[9.567470] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[9.567618] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_cpp.so\n'}
+[9.567772] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[9.567919] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/pythonpath.sh\n'}
+[9.568077] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/pythonpath.dsv\n'}
+[9.568516] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs-0.1.0-py3.10.egg-info\n'}
+[9.568785] (-) TimerEvent: {}
+[9.569073] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs-0.1.0-py3.10.egg-info/top_level.txt\n'}
+[9.569328] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs-0.1.0-py3.10.egg-info/SOURCES.txt\n'}
+[9.569558] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs-0.1.0-py3.10.egg-info/dependency_links.txt\n'}
+[9.569925] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs-0.1.0-py3.10.egg-info/PKG-INFO\n'}
+[9.570136] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs\n'}
+[9.570319] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/__init__.py\n'}
+[9.570486] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/_eagle_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[9.570642] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg\n'}
+[9.570798] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/__init__.py\n'}
+[9.570956] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/_cone_array.py\n'}
+[9.571150] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/_cone_s.c\n'}
+[9.571320] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/_cone.py\n'}
+[9.571528] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/_cone_array_s.c\n'}
+[9.571692] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/_eagle_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[9.572019] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.572229] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/_eagle_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[9.572407] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.572578] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/libeagle_msgs__rosidl_generator_py.so\n'}
+[9.572751] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.649670] (eagle_msgs) StdoutLine: {'line': b"Listing '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs'...\n"}
+[9.649979] (eagle_msgs) StdoutLine: {'line': b"Compiling '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/__init__.py'...\n"}
+[9.650196] (eagle_msgs) StdoutLine: {'line': b"Listing '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg'...\n"}
+[9.650391] (eagle_msgs) StdoutLine: {'line': b"Compiling '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/__init__.py'...\n"}
+[9.650594] (eagle_msgs) StdoutLine: {'line': b"Compiling '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/_cone.py'...\n"}
+[9.650765] (eagle_msgs) StdoutLine: {'line': b"Compiling '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/msg/_cone_array.py'...\n"}
+[9.659574] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.660116] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[9.660701] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.661898] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[9.662447] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.663474] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages/eagle_msgs/eagle_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[9.663731] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_generator_py.so\n'}
+[9.663996] (eagle_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/eagle_msgs/lib/libeagle_msgs__rosidl_generator_py.so" to ""\n'}
+[9.664263] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/ament_index/resource_index/rust_packages/eagle_msgs\n'}
+[9.664561] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust\n'}
+[9.664849] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/src\n'}
+[9.665081] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/src/lib.rs\n'}
+[9.665437] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/src/msg\n'}
+[9.665670] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/src/msg/rmw.rs\n'}
+[9.665976] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/src/msg.rs\n'}
+[9.666169] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/build.rs\n'}
+[9.666935] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/rust/Cargo.toml\n'}
+[9.667731] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/msg/Cone.idl\n'}
+[9.667958] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/msg/ConeArray.idl\n'}
+[9.668433] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/msg/Cone.msg\n'}
+[9.668614] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/msg/ConeArray.msg\n'}
+[9.669179] (-) TimerEvent: {}
+[9.669375] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/ament_index/resource_index/package_run_dependencies/eagle_msgs\n'}
+[9.671170] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/ament_index/resource_index/parent_prefix_path/eagle_msgs\n'}
+[9.671517] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/ament_prefix_path.sh\n'}
+[9.671714] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/ament_prefix_path.dsv\n'}
+[9.671895] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/path.sh\n'}
+[9.673646] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/environment/path.dsv\n'}
+[9.673857] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/local_setup.bash\n'}
+[9.674124] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/local_setup.sh\n'}
+[9.674328] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/local_setup.zsh\n'}
+[9.674749] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/local_setup.dsv\n'}
+[9.674947] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/package.dsv\n'}
+[9.676102] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/ament_index/resource_index/packages/eagle_msgs\n'}
+[9.676408] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_generator_cExport.cmake\n'}
+[9.677125] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[9.677888] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[9.678709] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[9.679450] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[9.680190] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[9.680943] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_cExport.cmake\n'}
+[9.682185] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[9.683237] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_generator_cppExport.cmake\n'}
+[9.685665] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[9.686097] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[9.686432] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[9.686786] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[9.687160] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[9.687553] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[9.688434] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_generator_pyExport.cmake\n'}
+[9.690252] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/export_eagle_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[9.690588] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[9.691162] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[9.691503] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[9.691789] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[9.692248] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[9.693033] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[9.693978] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[9.694253] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[9.695203] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgsConfig.cmake\n'}
+[9.695448] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake/eagle_msgsConfig-version.cmake\n'}
+[9.695681] (eagle_msgs) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/eagle_msgs/share/eagle_msgs/package.xml\n'}
+[9.701680] (eagle_msgs) CommandEnded: {'returncode': 0}
+[9.763856] (eagle_msgs) JobEnded: {'identifier': 'eagle_msgs', 'rc': 0}
+[9.766897] (ctrl) JobStarted: {'identifier': 'ctrl'}
+[9.769281] (-) TimerEvent: {}
+[9.782488] (ctrl) JobProgress: {'identifier': 'ctrl', 'progress': 'cmake'}
+[9.783784] (ctrl) Command: {'cmd': ['/usr/bin/cmake', '/home/eagle/ws/src/ctrl', '-DCMAKE_INSTALL_PREFIX=/home/eagle/ws/install/ctrl'], 'cwd': '/home/eagle/ws/build/ctrl', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/eagle/ws/install/eagle_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/ctrl'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/opt/ros/humble')]), 'shell': False}
+[9.871312] (-) TimerEvent: {}
+[9.884007] (ctrl) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[9.971437] (-) TimerEvent: {}
+[10.019773] (ctrl) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[10.039120] (ctrl) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[10.071563] (-) TimerEvent: {}
+[10.175367] (-) TimerEvent: {}
+[10.220539] (ctrl) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[10.241400] (ctrl) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[10.242198] (ctrl) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[10.243986] (ctrl) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[10.251216] (ctrl) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[10.279226] (-) TimerEvent: {}
+[10.379750] (-) TimerEvent: {}
+[10.477076] (ctrl) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[10.479872] (-) TimerEvent: {}
+[10.511285] (ctrl) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[10.511630] (ctrl) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[10.513112] (ctrl) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[10.520921] (ctrl) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[10.579976] (-) TimerEvent: {}
+[10.680484] (-) TimerEvent: {}
+[10.782115] (-) TimerEvent: {}
+[10.882548] (-) TimerEvent: {}
+[10.919287] (ctrl) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[10.982675] (-) TimerEvent: {}
+[11.083119] (-) TimerEvent: {}
+[11.184465] (-) TimerEvent: {}
+[11.196089] (ctrl) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[11.284592] (-) TimerEvent: {}
+[11.329466] (ctrl) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[11.349478] (ctrl) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[11.374000] (ctrl) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[11.384715] (-) TimerEvent: {}
+[11.417259] (ctrl) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[11.467734] (ctrl) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[11.485193] (-) TimerEvent: {}
+[11.587201] (-) TimerEvent: {}
+[11.654820] (ctrl) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.3 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[11.662575] (ctrl) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[11.687323] (-) TimerEvent: {}
+[11.787744] (-) TimerEvent: {}
+[11.889190] (-) TimerEvent: {}
+[11.940627] (ctrl) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[11.989319] (-) TimerEvent: {}
+[12.009756] (ctrl) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[12.089445] (-) TimerEvent: {}
+[12.119428] (ctrl) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[12.156069] (ctrl) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[12.190193] (-) TimerEvent: {}
+[12.291144] (-) TimerEvent: {}
+[12.342412] (ctrl) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[12.343923] (ctrl) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[12.391336] (-) TimerEvent: {}
+[12.491807] (-) TimerEvent: {}
+[12.511015] (ctrl) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[12.514200] (ctrl) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[12.592190] (-) TimerEvent: {}
+[12.632284] (ctrl) StdoutLine: {'line': b'-- Found eagle_msgs: 0.1.0 (/home/eagle/ws/install/eagle_msgs/share/eagle_msgs/cmake)\n'}
+[12.687907] (ctrl) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[12.692373] (-) TimerEvent: {}
+[12.792746] (-) TimerEvent: {}
+[12.835874] (ctrl) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[12.836272] (ctrl) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[12.836463] (ctrl) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[12.838397] (ctrl) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[12.840698] (ctrl) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[12.841042] (ctrl) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[12.842251] (ctrl) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[12.845305] (ctrl) StdoutLine: {'line': b'-- Configuring done\n'}
+[12.861368] (ctrl) StdoutLine: {'line': b'-- Generating done\n'}
+[12.869179] (ctrl) StdoutLine: {'line': b'-- Build files have been written to: /home/eagle/ws/build/ctrl\n'}
+[12.880484] (ctrl) CommandEnded: {'returncode': 0}
+[12.881435] (ctrl) JobProgress: {'identifier': 'ctrl', 'progress': 'build'}
+[12.882321] (ctrl) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/eagle/ws/build/ctrl', '--', '-j4', '-l4'], 'cwd': '/home/eagle/ws/build/ctrl', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/eagle/ws/install/eagle_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/ctrl'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/opt/ros/humble')]), 'shell': False}
+[12.892854] (-) TimerEvent: {}
+[12.950832] (ctrl) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ctrl.dir/src/ctrl.cpp.o\x1b[0m\n'}
+[12.992967] (-) TimerEvent: {}
+[13.093345] (-) TimerEvent: {}
+[13.193867] (-) TimerEvent: {}
+[13.294677] (-) TimerEvent: {}
+[13.395252] (-) TimerEvent: {}
+[13.495601] (-) TimerEvent: {}
+[13.596060] (-) TimerEvent: {}
+[13.696880] (-) TimerEvent: {}
+[13.797617] (-) TimerEvent: {}
+[13.898335] (-) TimerEvent: {}
+[13.998793] (-) TimerEvent: {}
+[14.099243] (-) TimerEvent: {}
+[14.199763] (-) TimerEvent: {}
+[14.300169] (-) TimerEvent: {}
+[14.400549] (-) TimerEvent: {}
+[14.500981] (-) TimerEvent: {}
+[14.601443] (-) TimerEvent: {}
+[14.701881] (-) TimerEvent: {}
+[14.802353] (-) TimerEvent: {}
+[14.902806] (-) TimerEvent: {}
+[15.003419] (-) TimerEvent: {}
+[15.103883] (-) TimerEvent: {}
+[15.204486] (-) TimerEvent: {}
+[15.304956] (-) TimerEvent: {}
+[15.405441] (-) TimerEvent: {}
+[15.505904] (-) TimerEvent: {}
+[15.606389] (-) TimerEvent: {}
+[15.706850] (-) TimerEvent: {}
+[15.807397] (-) TimerEvent: {}
+[15.908367] (-) TimerEvent: {}
+[16.009164] (-) TimerEvent: {}
+[16.109618] (-) TimerEvent: {}
+[16.210098] (-) TimerEvent: {}
+[16.310584] (-) TimerEvent: {}
+[16.411029] (-) TimerEvent: {}
+[16.511493] (-) TimerEvent: {}
+[16.612784] (-) TimerEvent: {}
+[16.713332] (-) TimerEvent: {}
+[16.813790] (-) TimerEvent: {}
+[16.914242] (-) TimerEvent: {}
+[17.014684] (-) TimerEvent: {}
+[17.115128] (-) TimerEvent: {}
+[17.147416] (ctrl) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ctrl\x1b[0m\n'}
+[17.215221] (-) TimerEvent: {}
+[17.315584] (-) TimerEvent: {}
+[17.354471] (ctrl) StdoutLine: {'line': b'[100%] Built target ctrl\n'}
+[17.371494] (ctrl) CommandEnded: {'returncode': 0}
+[17.372895] (ctrl) JobProgress: {'identifier': 'ctrl', 'progress': 'install'}
+[17.374655] (ctrl) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/eagle/ws/build/ctrl'], 'cwd': '/home/eagle/ws/build/ctrl', 'env': OrderedDict([('HOSTNAME', 'francesco-macbookair'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/eagle/ws/install/eagle_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/eagle'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/opt/ros/humble'), ('PWD', '/home/eagle/ws/build/ctrl'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/home/eagle/ws/install/eagle_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/eagle/ws/install/eagle_msgs:/opt/ros/humble')]), 'shell': False}
+[17.387218] (ctrl) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[17.387796] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/lib/ctrl/ctrl\n'}
+[17.389416] (ctrl) StdoutLine: {'line': b'-- Set runtime path of "/home/eagle/ws/install/ctrl/lib/ctrl/ctrl" to ""\n'}
+[17.390394] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/package_run_dependencies/ctrl\n'}
+[17.390670] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/parent_prefix_path/ctrl\n'}
+[17.391480] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/ament_prefix_path.sh\n'}
+[17.391960] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/ament_prefix_path.dsv\n'}
+[17.392943] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/path.sh\n'}
+[17.393607] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/environment/path.dsv\n'}
+[17.394081] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.bash\n'}
+[17.394512] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.sh\n'}
+[17.394898] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.zsh\n'}
+[17.395293] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/local_setup.dsv\n'}
+[17.395904] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/package.dsv\n'}
+[17.397097] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ament_index/resource_index/packages/ctrl\n'}
+[17.397395] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/cmake/ctrlConfig.cmake\n'}
+[17.397878] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/cmake/ctrlConfig-version.cmake\n'}
+[17.398671] (ctrl) StdoutLine: {'line': b'-- Installing: /home/eagle/ws/install/ctrl/share/ctrl/package.xml\n'}
+[17.402067] (ctrl) CommandEnded: {'returncode': 0}
+[17.416258] (-) TimerEvent: {}
+[17.437130] (ctrl) JobEnded: {'identifier': 'ctrl', 'rc': 0}
+[17.439085] (-) EventReactorShutdown: {}
