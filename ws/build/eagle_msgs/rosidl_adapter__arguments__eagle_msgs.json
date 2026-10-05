@@ -1,0 +1,7 @@
+{
+  "package_name": "eagle_msgs",
+  "non_idl_tuples": [
+    "/home/eagle/ws/src/eagle_msgs:msg/Cone.msg",
+    "/home/eagle/ws/src/eagle_msgs:msg/ConeArray.msg"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "eagle_msgs__rs",
+		"source" : "/home/eagle/ws/build/eagle_msgs/eagle_msgs__rs"
+	}
+}

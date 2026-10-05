@@ -23,7 +23,7 @@ if(BUILD_TESTING)
 endif()
 
 # Add executables
-add_executables(ctrl src/ctrl.cpp)
+add_executable(ctrl src/ctrl.cpp)
 
 # https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html
 
