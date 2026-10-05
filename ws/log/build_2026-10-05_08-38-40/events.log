@@ -1,7 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000690] (-) JobUnselected: {'identifier': 'eagle_msgs'}
-[0.000886] (-) JobUnselected: {'identifier': 'eagle_sim'}
-[0.001783] (ctrl) JobQueued: {'identifier': 'ctrl', 'dependencies': OrderedDict([('eagle_msgs', '/home/eagle/ws/install/eagle_msgs')])}
-[0.001868] (ctrl) JobStarted: {'identifier': 'ctrl'}
-[0.031356] (ctrl) JobEnded: {'identifier': 'ctrl', 'rc': 1}
-[0.040903] (-) EventReactorShutdown: {}

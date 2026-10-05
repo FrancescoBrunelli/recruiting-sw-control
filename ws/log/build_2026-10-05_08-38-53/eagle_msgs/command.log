@@ -1,6 +1,0 @@
-Invoking command in '/home/eagle/ws/build/eagle_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eagle/ws/src/eagle_msgs -DCMAKE_INSTALL_PREFIX=/home/eagle/ws/install/eagle_msgs
-Invoked command in '/home/eagle/ws/build/eagle_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eagle/ws/src/eagle_msgs -DCMAKE_INSTALL_PREFIX=/home/eagle/ws/install/eagle_msgs
-Invoking command in '/home/eagle/ws/build/eagle_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eagle/ws/build/eagle_msgs -- -j4 -l4
-Invoked command in '/home/eagle/ws/build/eagle_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eagle/ws/build/eagle_msgs -- -j4 -l4
-Invoking command in '/home/eagle/ws/build/eagle_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eagle/ws/build/eagle_msgs
-Invoked command in '/home/eagle/ws/build/eagle_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eagle/ws/build/eagle_msgs

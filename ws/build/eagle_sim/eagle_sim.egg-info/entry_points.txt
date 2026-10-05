@@ -1,7 +1,0 @@
-[console_scripts]
-can_gateway = eagle_sim.can_gateway:main
-fake_perception = eagle_sim.fake_perception:main
-lateral_controller = eagle_sim.lateral_controller:main
-track_publisher = eagle_sim.track_publisher:main
-vehicle_sim = eagle_sim.vehicle_sim:main
-
