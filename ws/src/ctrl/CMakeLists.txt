@@ -34,10 +34,17 @@ ament_target_dependencies(ctrl_publisher rclcpp std_msgs eagle_msgs)
 ament_target_dependencies(ctrl_subscriber rclcpp std_msgs eagle_msgs)
 
 # Need to install the target
+# NOTE: share/ for launch files; lib/ for executables
 install(TARGETS
     ctrl_publisher
     ctrl_subscriber
 
     DESTINATION lib/${PROJECT_NAME})
+
+# Install launch file(s)
+install(DIRECTORY
+    launch
+
+    DESTINATION share/${PROJECT_NAME})
 
 ament_package()

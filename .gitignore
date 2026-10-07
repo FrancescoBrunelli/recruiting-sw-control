@@ -3,4 +3,5 @@
 ws/build
 ws/install/
 ws/log/
+ws/src/ctrl/launch/__pycache__/
 
