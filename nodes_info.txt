@@ -1,0 +1,249 @@
+eagle@francesco-macbookair:~/ws$ ros2 node list
+/can_gateway
+/fake_perception
+/lateral_controller
+/rviz
+/track_publisher
+/transform_listener_impl_55e36b49c3a0
+/vehicle_sim
+eagle@francesco-macbookair:~/ws$ ros2 node info /can_gateway
+/can_gateway
+  Subscribers:
+    /sim/ground_truth/odom: nav_msgs/msg/Odometry
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /sim/actuator_cmd: std_msgs/msg/Float32MultiArray
+  Service Servers:
+    /can_gateway/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /can_gateway/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /can_gateway/get_parameters: rcl_interfaces/srv/GetParameters
+    /can_gateway/list_parameters: rcl_interfaces/srv/ListParameters
+    /can_gateway/reset: std_srvs/srv/Trigger
+    /can_gateway/set_parameters: rcl_interfaces/srv/SetParameters
+    /can_gateway/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+eagle@francesco-macbookair:~/ws$ ros2 node info /fake_perception 
+/fake_perception
+  Subscribers:
+    /tf: tf2_msgs/msg/TFMessage
+    /tf_static: tf2_msgs/msg/TFMessage
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /perception/cones: eagle_msgs/msg/ConeArray
+    /rosout: rcl_interfaces/msg/Log
+  Service Servers:
+    /fake_perception/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /fake_perception/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /fake_perception/get_parameters: rcl_interfaces/srv/GetParameters
+    /fake_perception/list_parameters: rcl_interfaces/srv/ListParameters
+    /fake_perception/set_parameters: rcl_interfaces/srv/SetParameters
+    /fake_perception/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+eagle@francesco-macbookair:~/ws$ ros2 node info /lateral_controller 
+/lateral_controller
+  Subscribers:
+    /planning/centerline: nav_msgs/msg/Path
+    /sim/ground_truth/odom: nav_msgs/msg/Odometry
+    /tf: tf2_msgs/msg/TFMessage
+    /tf_static: tf2_msgs/msg/TFMessage
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /sim/steering_cmd: std_msgs/msg/Float64
+  Service Servers:
+    /lateral_controller/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /lateral_controller/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /lateral_controller/get_parameters: rcl_interfaces/srv/GetParameters
+    /lateral_controller/list_parameters: rcl_interfaces/srv/ListParameters
+    /lateral_controller/set_parameters: rcl_interfaces/srv/SetParameters
+    /lateral_controller/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+eagle@francesco-macbookair:~/ws$ ros2 node info /track_publisher 
+/track_publisher
+  Subscribers:
+
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /sim/track: visualization_msgs/msg/MarkerArray
+  Service Servers:
+    /track_publisher/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /track_publisher/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /track_publisher/get_parameters: rcl_interfaces/srv/GetParameters
+    /track_publisher/list_parameters: rcl_interfaces/srv/ListParameters
+    /track_publisher/set_parameters: rcl_interfaces/srv/SetParameters
+    /track_publisher/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+eagle@francesco-macbookair:~/ws$ ros2 node info /rviz
+/rviz
+  Subscribers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /sim/track: visualization_msgs/msg/MarkerArray
+    /sim/vehicle_markers: visualization_msgs/msg/MarkerArray
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+  Service Servers:
+    /rviz/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /rviz/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /rviz/get_parameters: rcl_interfaces/srv/GetParameters
+    /rviz/list_parameters: rcl_interfaces/srv/ListParameters
+    /rviz/set_parameters: rcl_interfaces/srv/SetParameters
+    /rviz/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+eagle@francesco-macbookair:~/ws$ ros2 node info /transform_listener_impl_55e36b49c3a0 
+/transform_listener_impl_55e36b49c3a0
+  Subscribers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /tf: tf2_msgs/msg/TFMessage
+    /tf_static: tf2_msgs/msg/TFMessage
+  Publishers:
+    /rosout: rcl_interfaces/msg/Log
+  Service Servers:
+
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+eagle@francesco-macbookair:~/ws$ ros2 node info /vehicle_sim 
+/vehicle_sim
+  Subscribers:
+    /sim/actuator_cmd: std_msgs/msg/Float32MultiArray
+    /sim/steering_cmd: std_msgs/msg/Float64
+  Publishers:
+    /parameter_events: rcl_interfaces/msg/ParameterEvent
+    /rosout: rcl_interfaces/msg/Log
+    /sim/ground_truth/odom: nav_msgs/msg/Odometry
+    /sim/vehicle_markers: visualization_msgs/msg/MarkerArray
+    /tf: tf2_msgs/msg/TFMessage
+  Service Servers:
+    /sim/reset: std_srvs/srv/Trigger
+    /vehicle_sim/describe_parameters: rcl_interfaces/srv/DescribeParameters
+    /vehicle_sim/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+    /vehicle_sim/get_parameters: rcl_interfaces/srv/GetParameters
+    /vehicle_sim/list_parameters: rcl_interfaces/srv/ListParameters
+    /vehicle_sim/set_parameters: rcl_interfaces/srv/SetParameters
+    /vehicle_sim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+  Service Clients:
+
+  Action Servers:
+
+  Action Clients:
+
+## NODE INFO
+eagle@francesco-macbookair:~/ws$ ros2 node list
+/can_gateway
+/fake_perception
+/lateral_controller
+/rviz
+/track_publisher
+/transform_listener_impl_55af8f7a3ff0
+/vehicle_sim
+
+## TOPIC INFO
+eagle@francesco-macbookair:~/ws$ ros2 topic list
+/parameter_events
+/perception/cones
+/planning/centerline
+/rosout
+/sim/actuator_cmd
+/sim/ground_truth/odom
+/sim/steering_cmd
+/sim/track
+/sim/vehicle_markers
+/tf
+/tf_static
+
+### /planning/centerline info
+eagle@francesco-macbookair:~/ws$ ros2 topic info /planning/centerline 
+Type: nav_msgs/msg/Path
+Publisher count: 0
+Subscription count: 1
+
+eagle@francesco-macbookair:~/ws$ ros2 interface show nav_msgs/msg/Path 
+# An array of poses that represents a Path for a robot to follow.
+
+# Indicates the frame_id of the path.
+std_msgs/Header header
+        builtin_interfaces/Time stamp
+                int32 sec
+                uint32 nanosec
+        string frame_id
+
+# Array of poses to follow.
+geometry_msgs/PoseStamped[] poses
+        std_msgs/Header header
+                builtin_interfaces/Time stamp
+                        int32 sec
+                        uint32 nanosec
+                string frame_id
+        Pose pose
+                Point position
+                        float64 x
+                        float64 y
+                        float64 z
+                Quaternion orientation
+                        float64 x 0
+                        float64 y 0
+                        float64 z 0
+                        float64 w 1
+
+
+
+
+[francesco@francesco-macbookair ws]$ docker exec -it fsproject bash
+eagle@francesco-macbookair:~/ws$ ros2 topic list
+/parameter_events
+/perception/cones
+/planning/centerline
+/rosout
+/sim/actuator_cmd
+/sim/ground_truth/odom
+/sim/steering_cmd
+/sim/track
+/sim/vehicle_markers
+/tf
+/tf_static
+eagle@francesco-macbookair:~/ws$ ros2 topic list -t
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/perception/cones [eagle_msgs/msg/ConeArray]
+/planning/centerline [nav_msgs/msg/Path]
+/rosout [rcl_interfaces/msg/Log]
+/sim/actuator_cmd [std_msgs/msg/Float32MultiArray]
+/sim/ground_truth/odom [nav_msgs/msg/Odometry]
+/sim/steering_cmd [std_msgs/msg/Float64]
+/sim/track [visualization_msgs/msg/MarkerArray]
+/sim/vehicle_markers [visualization_msgs/msg/MarkerArray]
+/tf [tf2_msgs/msg/TFMessage]
+/tf_static [tf2_msgs/msg/TFMessage]
+
+
+

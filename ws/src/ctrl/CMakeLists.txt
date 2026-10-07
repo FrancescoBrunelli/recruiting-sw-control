@@ -8,6 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(eagle_msgs REQUIRED)
 
 if(BUILD_TESTING)
@@ -23,16 +24,19 @@ if(BUILD_TESTING)
 endif()
 
 # Add executables
-add_executable(ctrl src/ctrl.cpp)
+add_executable(ctrl_publisher src/ctrl.cpp)
+add_executable(ctrl_subscriber src/ctrl_subscriber.cpp)
 
 # https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html
 
 # Need to link the dependencies
-ament_target_dependencies(ctrl rclcpp eagle_msgs)
+ament_target_dependencies(ctrl_publisher rclcpp std_msgs eagle_msgs)
+ament_target_dependencies(ctrl_subscriber rclcpp std_msgs eagle_msgs)
 
 # Need to install the target
 install(TARGETS
-    ctrl
+    ctrl_publisher
+    ctrl_subscriber
 
     DESTINATION lib/${PROJECT_NAME})
 

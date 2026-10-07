@@ -8,6 +8,9 @@
 ## Loading of the repo inside the docker container
 - "This repository mounted as the workspace. The image expects it at `/home/eagle/ws`"
 
+After build the image by doing:
+docker build -t fsproject docker/.	// (From eagle/ws/)
+
 I've mounted the repo inside the container by doing:
 docker run -it --rm --network host -v $(pwd):/home/eagle/ws fsproject
 
@@ -36,10 +39,19 @@ The resulting docker run command is the following:
 
 `xhost -local:docker`
 
+# Create package
+To create the (C++) package in src/ I've done:
+ros2 pkg create ctrl --build-type ament_cmake --dependencies rclcpp eagle_msgs
 
+// --dependencies is required to get all required dependencies; for C++ we need rclcpp (+ the msg package)
 
+After modifying the CMakeLists.txt file adding the executable ctrl.cpp, (ament_target_dependencies(ctrl rclcpp eagle_msgs)) and (install), I've build the created package by doing:
 
+colcon build --packages-select ctrl
 
+However, since it's the first time I build the project, I first need to do:
+
+colcon build --packages-up-to ctrl
 
 # Structure of the control repo
 
@@ -72,5 +84,10 @@ The resulting docker run command is the following:
     └── setup.py
 
 9 directories, 18 files
+
+# Useful Link to ROS 2 Documentation
+
+#### Using XMP, YAML, and Python for ROS 2 Launch Files
+https://docs.ros.org/en/humble/How-To-Guides/Launch-file-different-formats.html
 
 
