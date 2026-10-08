@@ -23,9 +23,18 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+# Add libraries
+add_library(ctrl_can STATIC can/eagle_task.c)
+
 # Add executables
 add_executable(ctrl_publisher src/ctrl.cpp)
 add_executable(ctrl_subscriber src/ctrl_subscriber.cpp)
+
+# name visibility folder
+target_include_directories(ctrl_can PUBLIC can)
+
+# Link library (ctrl_can) to ctrl package (ctrl_publisher)
+target_link_libraries(ctrl_publisher ctrl_can)
 
 # https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html
 
