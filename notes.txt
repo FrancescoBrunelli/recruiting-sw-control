@@ -90,4 +90,12 @@ colcon build --packages-up-to ctrl
 #### Using XMP, YAML, and Python for ROS 2 Launch Files
 https://docs.ros.org/en/humble/How-To-Guides/Launch-file-different-formats.html
 
+## Generate C code with cantools
+
+(https://cantools.readthedocs.io/en/latest/)
+
+To generate the c code from the database given (at can/eagle_task.dbc), we need to use the cantools command "generate_c_source":
+
+python3 -m cantools generate_c_source eagle_task.dbc
+
 
