@@ -29,6 +29,7 @@ class Publisher : public rclcpp::Node {
 public:
     Publisher() : Node("minimal_publisher"), count_(0) {     // Node naming and init count to 0
         publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);     // Publisher initialized with stirng type and topic named "topic"
+        initCAN();
         //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         speed_timer_ = this->create_wall_timer(1s, std::bind(&Publisher::print_speed, this));
@@ -36,6 +37,7 @@ public:
         // To pass parameters: function, this, param1, param2, ...., param<n>
         //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
         send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(false, false, false);});
+        //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
     }
 
     // (Following this guide: https://italiancoders.it/guardians-of-the-can-bus-come-usare-il-can-bus-in-c-e-c-pt-1/)
@@ -51,7 +53,7 @@ public:
         struct ifreq ifr;
         memset(&ifr, 0, sizeof(ifr));
         snprintf(ifr.ifr_name, sizeof(ifr.ifr_name), "%s", "vcan0");
-        if (ioctl(sckt, SIOCGIFHWADDR, &ifr) < 0) {
+        if (ioctl(sckt, SIOCGIFINDEX, &ifr) < 0) {
             RCLCPP_ERROR(this->get_logger(), "ioctl error");
             close(sckt);
             return EXIT_FAILURE;
@@ -82,6 +84,7 @@ public:
         // Where read is:   ssize_t read(int fildes, void *buf, size_t nbyte);
         // While write is:  ssize_t write(int fildes, const void *buf, size_t nbyte);
         */
+        return 0;
     }
 
     int send_AS_CMD(bool t, bool b, bool m) {      // takes: throttle, brake, mission_finished requests
@@ -108,7 +111,7 @@ public:
 
         // Third: encode requests and pack message
         cmd.throttle_req = eagle_task_as_cmd_throttle_req_encode(cmd.throttle_req);
-        cmd.brake_req = eagle_task_as_cmd_brake_req_decode(cmd.brake_req);
+        cmd.brake_req = eagle_task_as_cmd_brake_req_encode(cmd.brake_req);
         cmd.mission_finished = eagle_task_as_cmd_mission_finished_encode(cmd.mission_finished);
 
             // Frame composition
@@ -121,7 +124,7 @@ public:
         // Send message (frame) over CAN
         if (write(sckt, &frame, sizeof(struct can_frame)) == -1) {
             RCLCPP_ERROR(this->get_logger(), "write error");
-            close(sckt);
+            //close(sckt);
             return EXIT_FAILURE;
         }
         return 0;
