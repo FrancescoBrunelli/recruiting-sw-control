@@ -32,7 +32,7 @@ public:
         initCAN();
         //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
-        speed_timer_ = this->create_wall_timer(1s, std::bind(&Publisher::print_speed, this));
+        speed_timer_ = this->create_wall_timer(10s, std::bind(&Publisher::print_speed, this));
 
         // To pass parameters: function, this, param1, param2, ...., param<n>
         //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
