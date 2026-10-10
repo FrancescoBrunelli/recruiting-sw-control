@@ -27,26 +27,26 @@ endif()
 add_library(ctrl_can STATIC can/eagle_task.c)
 
 # Add executables
-add_executable(ctrl_publisher src/ctrl.cpp)
-add_executable(ctrl_subscriber src/ctrl_subscriber.cpp)
+add_executable(ctrl_PID src/ctrl_PID.cpp)
+add_executable(ctrl_centerline src/ctrl_centerline.cpp)
 
 # name visibility folder
 target_include_directories(ctrl_can PUBLIC can)
 
-# Link library (ctrl_can) to ctrl package (ctrl_publisher)
-target_link_libraries(ctrl_publisher ctrl_can)
+# Link library (ctrl_can) to ctrl package (ctrl_PID)
+target_link_libraries(ctrl_PID ctrl_can)
 
 # https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html
 
 # Need to link the dependencies
-ament_target_dependencies(ctrl_publisher rclcpp std_msgs eagle_msgs)
-ament_target_dependencies(ctrl_subscriber rclcpp std_msgs eagle_msgs)
+ament_target_dependencies(ctrl_PID rclcpp std_msgs eagle_msgs)
+ament_target_dependencies(ctrl_centerline rclcpp std_msgs eagle_msgs)
 
 # Need to install the target
 # NOTE: share/ for launch files; lib/ for executables
 install(TARGETS
-    ctrl_publisher
-    ctrl_subscriber
+        ctrl_PID
+        ctrl_centerline
 
     DESTINATION lib/${PROJECT_NAME})
 

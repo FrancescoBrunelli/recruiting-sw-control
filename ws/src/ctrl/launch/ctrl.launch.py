@@ -16,8 +16,8 @@ def generate_launch_description():
         launch_include,
 
         # Launch Node(s)
-        Node(package='ctrl', executable='ctrl_publisher'),
-        Node(package='ctrl', executable='ctrl_subscriber'),
+        Node(package='ctrl', executable='ctrl_PID'),
+        Node(package='ctrl', executable='ctrl_centerline'),
 
 
     ])

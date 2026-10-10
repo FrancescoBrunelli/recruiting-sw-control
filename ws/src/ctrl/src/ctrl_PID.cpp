@@ -1,4 +1,4 @@
-#include "ctrl.h"
+#include "ctrl_PID.h"
 #include <chrono>                       // time utils
 #include <string>
 #include <memory>                       // smart pointers
@@ -27,8 +27,8 @@ struct sockaddr_can addr;
 
 class Publisher : public rclcpp::Node {
 public:
-    Publisher() : Node("minimal_publisher"), count_(0) {     // Node naming and init count to 0
-        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);     // Publisher initialized with stirng type and topic named "topic"
+    Publisher() : Node("PID"), count_(0) {     // Node naming and init count to 0
+        publisher_ = this->create_publisher<std_msgs::msg::String>("PID", 10);     // Publisher initialized with stirng type and topic named "topic"
         initCAN();
         //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
@@ -47,6 +47,8 @@ public:
         if (sckt == -1) {
             RCLCPP_ERROR(this->get_logger(), "Can't open socket");
             return EXIT_FAILURE;
+        } else {
+            RCLCPP_INFO(this->get_logger(), "Socket open");
         }
 
         // set I/O attributes
@@ -127,6 +129,13 @@ public:
             //close(sckt);
             return EXIT_FAILURE;
         }
+
+        /*
+         else {      // Debug print
+            RCLCPP_INFO(this->get_logger(), "sent AS_CMD: %d, %d, %d", t, b, m);
+        }
+        */
+
         return 0;
     }
 
@@ -158,7 +167,7 @@ public:
             RCLCPP_ERROR(this->get_logger(), "Speed unpack error");
             return -1;
         }
-        vehicle_status.vehicle_speed = eagle_task_veh_speed_vehicle_speed_decode(raw_speed.vehicle_speed);
+        vehicle_status.vehicle_speed = eagle_task_veh_speed_vehicle_speed_decode(raw_speed.vehicle_speed) * 100;
 
         return vehicle_status.vehicle_speed;
     }
@@ -178,7 +187,7 @@ public:
             //message.data = readSpeed();
             //RCLCPP_INFO(this->get_logger(), "'%s'", message.data.c_str());
             //publisher_->publish(message);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Vehicle Speed: %f", readSpeed());
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Vehicle Speed: %f m/s", readSpeed());
         }
 
 
