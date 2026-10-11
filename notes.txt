@@ -98,4 +98,13 @@ To generate the c code from the database given (at can/eagle_task.dbc), we need 
 
 python3 -m cantools generate_c_source eagle_task.dbc
 
+# Using the CAN Bus
+
+#### What's in the bus:
+candump vcan0
+  vcan0  200   [8]  00 00 00 00 00 00 00 00
+
+# To display the published CenterlineMarker in Rviz
+- Click add, select "By Topic"
+- Select "/centerline/marker/Marker"
 
