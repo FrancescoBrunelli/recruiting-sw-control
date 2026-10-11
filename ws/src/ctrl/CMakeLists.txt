@@ -10,6 +10,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(eagle_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -39,8 +41,8 @@ target_link_libraries(ctrl_PID ctrl_can)
 # https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client.html
 
 # Need to link the dependencies
-ament_target_dependencies(ctrl_PID rclcpp std_msgs eagle_msgs)
-ament_target_dependencies(ctrl_centerline rclcpp std_msgs eagle_msgs)
+ament_target_dependencies(ctrl_PID rclcpp std_msgs eagle_msgs nav_msgs)
+ament_target_dependencies(ctrl_centerline rclcpp std_msgs eagle_msgs nav_msgs visualization_msgs)
 
 # Need to install the target
 # NOTE: share/ for launch files; lib/ for executables
