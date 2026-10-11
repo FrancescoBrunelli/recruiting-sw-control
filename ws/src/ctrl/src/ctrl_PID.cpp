@@ -18,9 +18,20 @@
 #include "std_msgs/msg/string.hpp"      // for publishing/subscribing to text topics
 #include "std_msgs/msg/float64.hpp"     // for float64 (== double) numbers
 
+#include "eagle_msgs/msg/cone_array.hpp"
+#include "eagle_msgs/msg/cone.hpp"
+
+#include "geometry_msgs/msg/pose.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
+#include "nav_msgs/msg/path.hpp"
+
+using std::placeholders::_1;
+
 using namespace std::chrono_literals;
 
 VehicleStatus vehicle_status(true, false, false, 0);
+fsmState state = IDLE;
+int max_cones = 0;
 
 int sckt;
 struct sockaddr_can addr;
@@ -34,14 +45,80 @@ public:
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         speed_timer_ = this->create_wall_timer(10s, std::bind(&Publisher::print_speed, this));
 
+        subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
+              "perception/cones", 10, std::bind(&Publisher::empirical_PID_fsm, this, _1));
+
         // To pass parameters: function, this, param1, param2, ...., param<n>
         //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
         send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
     }
 
-    void PID_fms () {
+    void empirical_PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+        switch (state) {
+            case IDLE: {
+                max_cones = msg.cones.size();
+                state = ACCELERATE;
+                break;
+            }
+            case ACCELERATE: {
+                if (msg.cones.size() - 1 < (max_cones / 2)) {
+                    state = BRAKE;
+                }
+                break;
+            }
+            case BRAKE: {
+                if (vehicle_status.vehicle_speed == 0) {
+                    state = FINISH;
+                }
+                break;
+            }
+            case FINISH: {
+                RCLCPP_INFO(this->get_logger(), "END");
+                break;
+            }
+        }
+        update_AS_CMD();
+    }
 
+
+    /*
+    float compute_trhottle_a() {
+
+    }
+
+    float compute_brake_a() {
+
+    }
+    */
+
+    void update_AS_CMD() {
+        switch (state) {
+            case IDLE: {
+                vehicle_status.throttle = false;
+                vehicle_status.brake = false;
+                vehicle_status.mission_finished = false;
+                break;
+            }
+            case ACCELERATE: {
+                vehicle_status.throttle = true;
+                vehicle_status.brake = false;
+                vehicle_status.mission_finished = false;
+                break;
+            }
+            case BRAKE: {
+                vehicle_status.throttle = false;
+                vehicle_status.brake = true;
+                vehicle_status.mission_finished = false;
+                break;
+            }
+            case FINISH: {
+                vehicle_status.throttle = false;
+                vehicle_status.brake = false;
+                vehicle_status.mission_finished = true;
+                break;
+            }
+        }
     }
 
     // (Following this guide: https://italiancoders.it/guardians-of-the-can-bus-come-usare-il-can-bus-in-c-e-c-pt-1/)
@@ -184,16 +261,14 @@ public:
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Vehicle Speed: %f m/s", readSpeed());
     }
 
+    void timer_callback(){
+        auto message = std_msgs::msg::String();
+        message.data = "Hello World!" + std::to_string(count_++);
+        RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());  // Every published message gets printed to console
+        publisher_->publish(message);
+    }
+
     private:
-        void timer_callback(){
-            auto message = std_msgs::msg::String();
-            message.data = "Hello World!" + std::to_string(count_++);
-            RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());  // Every published message gets printed to console
-            publisher_->publish(message);
-        }
-
-
-
         // Declaration of timer, publisher and counter fields
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
@@ -201,6 +276,7 @@ public:
 
         rclcpp::TimerBase::SharedPtr speed_timer_;
         rclcpp::TimerBase::SharedPtr send_timer_;
+        rclcpp::Subscription<eagle_msgs::msg::ConeArray>::SharedPtr subscription_;
 };
 
 
