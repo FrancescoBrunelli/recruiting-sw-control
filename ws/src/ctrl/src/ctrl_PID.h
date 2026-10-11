@@ -2,7 +2,7 @@
 #define __CTRL_H__
 #include "../can/eagle_task.h"
 
-typedef enum {IDLE, ACCELERATE, BRAKE, FINISH} fsmState;
+typedef enum {IDLE, ACCELERATE, BRAKE, FINISH, END} fsmState;
 
 struct VehicleStatus {
     // false = 0; true = 1

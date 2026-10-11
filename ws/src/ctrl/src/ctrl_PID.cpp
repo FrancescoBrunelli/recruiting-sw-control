@@ -32,9 +32,14 @@ using namespace std::chrono_literals;
 VehicleStatus vehicle_status(true, false, false, 0);
 fsmState state = IDLE;
 int max_cones = 0;
+double t_start = 0;
+double measure_speed = 0;
+bool sim_ready = false;
 
 int sckt;
 struct sockaddr_can addr;
+double throttle_a = 7.17;       // m/s^2
+double brake_a = 12.58;         // m/s^2 (module)
 
 class Publisher : public rclcpp::Node {
 public:
@@ -43,10 +48,16 @@ public:
         initCAN();
         //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
-        speed_timer_ = this->create_wall_timer(10s, std::bind(&Publisher::print_speed, this));
+        speed_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::readSpeed, this));
+
+        // Timer for calculating throttle acceleration and brakes deceleration
+        //check_timer_ = this->create_wall_timer(1ms, std::bind(&Publisher::check, this));
 
         subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
-              "perception/cones", 10, std::bind(&Publisher::empirical_PID_fsm, this, _1));
+              "perception/cones", 10, std::bind(&Publisher::kinematic_PID_fsm, this, _1));
+
+        /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
+              "perception/cones", 10, std::bind(&Publisher::empirical_PID_fsm, this, _1));*/
 
         // To pass parameters: function, this, param1, param2, ...., param<n>
         //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
@@ -54,7 +65,49 @@ public:
         //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
     }
 
+    void kinematic_PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+        if (!sim_ready) {
+            return;
+        }
+        switch (state) {
+            case IDLE: {
+                state = ACCELERATE;
+                break;
+            }
+            case ACCELERATE: {
+                double space_from_finish = msg.cones.size() / 2 * 5 - 4;       // In meters (subtracting 4 meters for tolerance from last cone of finish zone)
+                double braking_space_required = 0.5 * (vehicle_status.vehicle_speed * vehicle_status.vehicle_speed) / brake_a;
+                // Update space required to stop
+                if (msg.cones[msg.cones.size() - 1].color == 3 && space_from_finish <= braking_space_required) {
+                    state = BRAKE;
+                    //RCLCPP_INFO(this->get_logger(), "Orange cone detected");
+                }
+                break;
+            }
+            case BRAKE: {
+                if (vehicle_status.vehicle_speed == 0) {
+                    state = FINISH;
+                }
+                break;
+            }
+            case FINISH: {
+                RCLCPP_INFO(this->get_logger(), "END");
+                state = END;
+                break;
+            }
+            case END: {
+                break;
+            }
+            default:
+                RCLCPP_INFO(this->get_logger(), "ERROR: Switch case");
+        }
+        update_AS_CMD();
+    }
+
     void empirical_PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+        if (!sim_ready) {
+            return;
+        }
         switch (state) {
             case IDLE: {
                 max_cones = msg.cones.size();
@@ -75,12 +128,66 @@ public:
             }
             case FINISH: {
                 RCLCPP_INFO(this->get_logger(), "END");
+                state = END;
+                break;
+            }
+            case END: {
                 break;
             }
         }
         update_AS_CMD();
     }
 
+    void start_brake() {
+        t_start = this->now().seconds();
+        throttle_off_timer_->cancel();
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Braking");
+        measure_speed = vehicle_status.vehicle_speed;
+        vehicle_status.throttle = false;
+        vehicle_status.brake = true;
+        state = BRAKE;
+    }
+
+    void check() {
+        if (!sim_ready) {
+            return;
+        }
+        if (state == IDLE) {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Started Test");
+            t_start = this->now().seconds();
+            vehicle_status.throttle = true;
+            state = ACCELERATE;
+        }
+
+        if (state == ACCELERATE && (this->now().seconds() - t_start) >= 3.0) {
+            state = BRAKE;
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Braking");
+            measure_speed = vehicle_status.vehicle_speed;
+            vehicle_status.throttle = false;
+            vehicle_status.brake = true;
+            t_start = this->now().seconds();
+        }
+
+        if (state == BRAKE && vehicle_status.vehicle_speed == 0) {
+            check_timer_->cancel();
+            get_vehicle_stats((this->now().seconds() - t_start));
+        }
+    }
+
+    void get_vehicle_stats(double t_brake) {
+        double throttle_a, brake_a;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Acceleration time: 3 s");
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Measured speed: %.3f m/s", measure_speed);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Deceleration time: %.3f s", t_brake);
+
+        throttle_a = measure_speed / 3.0;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Throttle acceleration: %.3f m/s^2", throttle_a);
+
+        brake_a = measure_speed / t_brake;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Brake deceleration: (-) %.3f m/s^2", brake_a);
+
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Finished Test");
+    }
 
     /*
     float compute_trhottle_a() {
@@ -116,6 +223,9 @@ public:
                 vehicle_status.throttle = false;
                 vehicle_status.brake = false;
                 vehicle_status.mission_finished = true;
+                break;
+            }
+            case END: {
                 break;
             }
         }
@@ -248,7 +358,8 @@ public:
             RCLCPP_ERROR(this->get_logger(), "Speed unpack error");
             return -1;
         }
-        vehicle_status.vehicle_speed = eagle_task_veh_speed_vehicle_speed_decode(raw_speed.vehicle_speed) * 100;
+        sim_ready = true;
+        vehicle_status.vehicle_speed = eagle_task_veh_speed_vehicle_speed_decode(raw_speed.vehicle_speed);
 
         return vehicle_status.vehicle_speed;
     }
@@ -275,6 +386,9 @@ public:
         size_t count_;
 
         rclcpp::TimerBase::SharedPtr speed_timer_;
+        rclcpp::TimerBase::SharedPtr throttle_off_timer_;
+        rclcpp::TimerBase::SharedPtr check_timer_;
+
         rclcpp::TimerBase::SharedPtr send_timer_;
         rclcpp::Subscription<eagle_msgs::msg::ConeArray>::SharedPtr subscription_;
 };
