@@ -145,7 +145,10 @@ color: 1
         }
 
         void publishPath() {
-            // Publish updated Path
+            // Publish updated Path and Markers only if not empty
+            if (path.header.frame_id.empty()) {
+                return;
+            }
             publisher_->publish(path);
             //RCLCPP_INFO(this->get_logger(), "Path published");        // Debug print
 

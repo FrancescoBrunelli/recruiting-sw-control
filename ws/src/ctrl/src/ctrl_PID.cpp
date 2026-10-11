@@ -20,7 +20,7 @@
 
 using namespace std::chrono_literals;
 
-VehicleStatus vehicle_status(false, false, false, 0);
+VehicleStatus vehicle_status(true, false, false, 0);
 
 int sckt;
 struct sockaddr_can addr;
@@ -36,8 +36,12 @@ public:
 
         // To pass parameters: function, this, param1, param2, ...., param<n>
         //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
-        send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(false, false, false);});
+        send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
+    }
+
+    void PID_fms () {
+
     }
 
     // (Following this guide: https://italiancoders.it/guardians-of-the-can-bus-come-usare-il-can-bus-in-c-e-c-pt-1/)
@@ -89,13 +93,13 @@ public:
         return 0;
     }
 
-    int send_AS_CMD(bool t, bool b, bool m) {      // takes: throttle, brake, mission_finished requests
+    int send_AS_CMD() {      // takes: throttle, brake, mission_finished requests
         // First: create, initialize, and fill message content
         eagle_task_as_cmd_t cmd;
         eagle_task_as_cmd_init(&cmd);
-        cmd.throttle_req = t;
-        cmd.brake_req = b;
-        cmd.mission_finished = m;
+        cmd.throttle_req = vehicle_status.throttle;
+        cmd.brake_req = vehicle_status.brake;
+        cmd.mission_finished = vehicle_status.mission_finished;
 
         // Second: check physical values
         if (!eagle_task_as_cmd_throttle_req_is_in_phys_range(cmd.throttle_req)) {
@@ -172,7 +176,13 @@ public:
         return vehicle_status.vehicle_speed;
     }
 
-
+    void print_speed() {
+        //auto message = std_msgs::msg::Double();
+        //message.data = readSpeed();
+        //RCLCPP_INFO(this->get_logger(), "'%s'", message.data.c_str());
+        //publisher_->publish(message);
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Vehicle Speed: %f m/s", readSpeed());
+    }
 
     private:
         void timer_callback(){
@@ -182,13 +192,6 @@ public:
             publisher_->publish(message);
         }
 
-    void print_speed() {
-            //auto message = std_msgs::msg::Double();
-            //message.data = readSpeed();
-            //RCLCPP_INFO(this->get_logger(), "'%s'", message.data.c_str());
-            //publisher_->publish(message);
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Vehicle Speed: %f m/s", readSpeed());
-        }
 
 
         // Declaration of timer, publisher and counter fields
