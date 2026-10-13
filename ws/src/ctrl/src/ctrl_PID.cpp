@@ -24,12 +24,13 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "nav_msgs/msg/path.hpp"
+#include "geometry_msgs/msg/vector3.hpp"
 
 using std::placeholders::_1;
 
 using namespace std::chrono_literals;
 
-VehicleStatus vehicle_status(true, false, false, 0);
+VehicleStatus vehicle_status(0, 0, 0, 0);
 fsmState state = IDLE;
 int max_cones = 0;
 double t_start = 0;
@@ -38,23 +39,29 @@ bool sim_ready = false;
 
 int sckt;
 struct sockaddr_can addr;
-double throttle_a = 7.17;       // m/s^2
-double brake_a = 12.58;         // m/s^2 (module)
+const double THROTTLE_A = 7.17;       // m/s^2
+const double BRAKE_A = 12.58;         // m/s^2 (module)
+const float KP = 0;
+const float KI = 0;
+const float KD = 0;
+float error_sum = 0;
 
 class Publisher : public rclcpp::Node {
 public:
     Publisher() : Node("PID"), count_(0) {     // Node naming and init count to 0
-        publisher_ = this->create_publisher<std_msgs::msg::String>("PID", 10);     // Publisher initialized with stirng type and topic named "topic"
+        publisher_ = this->create_publisher<std_msgs::msg::String>("PID", 10);     // Publisher initialized with string type and topic named "topic"
         initCAN();
         //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         speed_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::readSpeed, this));
+        plot_data_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3>("plot", 10);
+        publish_data_timer_ = this->create_wall_timer(10ms, std::bind(&Publisher::send_data, this));
 
         // Timer for calculating throttle acceleration and brakes deceleration
         //check_timer_ = this->create_wall_timer(1ms, std::bind(&Publisher::check, this));
 
-        subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
-              "perception/cones", 10, std::bind(&Publisher::kinematic_PID_fsm, this, _1));
+        /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
+              "perception/cones", 10, std::bind(&Publisher::kinematic_lateral_control_fsm, this, _1));*/
 
         /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
               "perception/cones", 10, std::bind(&Publisher::empirical_PID_fsm, this, _1));*/
@@ -65,21 +72,25 @@ public:
         //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
     }
 
-    void kinematic_PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+    void kinematic_lateral_control_fsm (const eagle_msgs::msg::ConeArray & msg) {
         if (!sim_ready) {
             return;
         }
         switch (state) {
             case IDLE: {
                 state = ACCELERATE;
+                vehicle_status.throttle = 1;
+                vehicle_status.brake = 0;
                 break;
             }
             case ACCELERATE: {
                 double space_from_finish = msg.cones.size() / 2 * 5 - 4;       // In meters (subtracting 4 meters for tolerance from last cone of finish zone)
-                double braking_space_required = 0.5 * (vehicle_status.vehicle_speed * vehicle_status.vehicle_speed) / brake_a;
+                double braking_space_required = 0.5 * (vehicle_status.vehicle_speed * vehicle_status.vehicle_speed) / BRAKE_A;
                 // Update space required to stop
                 if (msg.cones[msg.cones.size() - 1].color == 3 && space_from_finish <= braking_space_required) {
                     state = BRAKE;
+                    vehicle_status.throttle = 0;
+                    vehicle_status.brake = 1;
                     //RCLCPP_INFO(this->get_logger(), "Orange cone detected");
                 }
                 break;
@@ -104,7 +115,7 @@ public:
         update_AS_CMD();
     }
 
-    void empirical_PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+    void empirical_lateral_control_fsm (const eagle_msgs::msg::ConeArray & msg) {
         if (!sim_ready) {
             return;
         }
@@ -112,11 +123,15 @@ public:
             case IDLE: {
                 max_cones = msg.cones.size();
                 state = ACCELERATE;
+                vehicle_status.throttle = 1;
+                vehicle_status.brake = 0;
                 break;
             }
             case ACCELERATE: {
                 if (msg.cones.size() - 1 < (max_cones / 2)) {
                     state = BRAKE;
+                    vehicle_status.throttle = 0;
+                    vehicle_status.brake = 1;
                 }
                 break;
             }
@@ -138,6 +153,27 @@ public:
         update_AS_CMD();
     }
 
+    void PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+        /*
+        error  = target_speed - measured_speed
+        output = Kp * error + Ki * (sum of error over time) + Kd * (how fast the error is changing)
+        */
+        if (!sim_ready) {
+            return;
+        }
+
+        /*
+        error  = target_speed - measured_speed;
+        error_sum += error;
+        output = KP * error + KI * error_sum + KD * (error_sum / error);
+        */
+
+    }
+
+    void send_data() {
+
+    }
+
     void start_brake() {
         t_start = this->now().seconds();
         throttle_off_timer_->cancel();
@@ -155,7 +191,7 @@ public:
         if (state == IDLE) {
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Started Test");
             t_start = this->now().seconds();
-            vehicle_status.throttle = true;
+            vehicle_status.throttle = 1;
             state = ACCELERATE;
         }
 
@@ -163,8 +199,8 @@ public:
             state = BRAKE;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Braking");
             measure_speed = vehicle_status.vehicle_speed;
-            vehicle_status.throttle = false;
-            vehicle_status.brake = true;
+            vehicle_status.throttle = 0;
+            vehicle_status.brake = 1;
             t_start = this->now().seconds();
         }
 
@@ -202,26 +238,26 @@ public:
     void update_AS_CMD() {
         switch (state) {
             case IDLE: {
-                vehicle_status.throttle = false;
-                vehicle_status.brake = false;
+                vehicle_status.throttle = 0;
+                vehicle_status.brake = 0;
                 vehicle_status.mission_finished = false;
                 break;
             }
             case ACCELERATE: {
-                vehicle_status.throttle = true;
-                vehicle_status.brake = false;
+                //vehicle_status.throttle = 1;
+                //vehicle_status.brake = 0;
                 vehicle_status.mission_finished = false;
                 break;
             }
             case BRAKE: {
-                vehicle_status.throttle = false;
-                vehicle_status.brake = true;
+                //vehicle_status.throttle = 0;
+                //vehicle_status.brake = 1;
                 vehicle_status.mission_finished = false;
                 break;
             }
             case FINISH: {
-                vehicle_status.throttle = false;
-                vehicle_status.brake = false;
+                vehicle_status.throttle = 0;
+                vehicle_status.brake = 0;
                 vehicle_status.mission_finished = true;
                 break;
             }
@@ -284,16 +320,17 @@ public:
         // First: create, initialize, and fill message content
         eagle_task_as_cmd_t cmd;
         eagle_task_as_cmd_init(&cmd);
-        cmd.throttle_req = vehicle_status.throttle;
-        cmd.brake_req = vehicle_status.brake;
+
+        const double throttle_physical = vehicle_status.throttle;
+        const double brake_physical = vehicle_status.brake;
         cmd.mission_finished = vehicle_status.mission_finished;
 
         // Second: check physical values
-        if (!eagle_task_as_cmd_throttle_req_is_in_phys_range(cmd.throttle_req)) {
+        if (!eagle_task_as_cmd_throttle_req_is_in_phys_range(throttle_physical)) {
             RCLCPP_ERROR(this->get_logger(), "throttle request not in physical range");
             return -1;
         }
-        if (!eagle_task_as_cmd_brake_req_is_in_phys_range(cmd.brake_req)) {
+        if (!eagle_task_as_cmd_brake_req_is_in_phys_range(brake_physical)) {
             RCLCPP_ERROR(this->get_logger(), "brake request not in physical range");
             return -1;
         }
@@ -303,8 +340,8 @@ public:
         }
 
         // Third: encode requests and pack message
-        cmd.throttle_req = eagle_task_as_cmd_throttle_req_encode(cmd.throttle_req);
-        cmd.brake_req = eagle_task_as_cmd_brake_req_encode(cmd.brake_req);
+        cmd.throttle_req = eagle_task_as_cmd_throttle_req_encode(throttle_physical);
+        cmd.brake_req = eagle_task_as_cmd_brake_req_encode(brake_physical);
         cmd.mission_finished = eagle_task_as_cmd_mission_finished_encode(cmd.mission_finished);
 
             // Frame composition
@@ -383,11 +420,13 @@ public:
         // Declaration of timer, publisher and counter fields
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+        rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr plot_data_publisher_;
         size_t count_;
 
         rclcpp::TimerBase::SharedPtr speed_timer_;
         rclcpp::TimerBase::SharedPtr throttle_off_timer_;
         rclcpp::TimerBase::SharedPtr check_timer_;
+        rclcpp::TimerBase::SharedPtr publish_data_timer_;
 
         rclcpp::TimerBase::SharedPtr send_timer_;
         rclcpp::Subscription<eagle_msgs::msg::ConeArray>::SharedPtr subscription_;
