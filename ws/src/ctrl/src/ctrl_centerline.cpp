@@ -35,8 +35,8 @@ class Subscriber : public rclcpp::Node
             markerLine.id = 1;
             points.type = visualization_msgs::msg::Marker::POINTS;
             markerLine.type = visualization_msgs::msg::Marker::LINE_STRIP;
-            points.scale.x = 0.02;
-            points.scale.y = 0.02;
+            points.scale.x = 0.1;
+            points.scale.y = 0.05;
             markerLine.scale.x = 0.01;
             markerLine.scale.y = 0.01;
             points.color.g = 1.0f;
