@@ -2,6 +2,7 @@
 #include <chrono>                       // time utils
 #include <string>
 #include <memory>                       // smart pointers
+#include <cmath>
 #include <functional>
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,40 +32,56 @@ using std::placeholders::_1;
 using namespace std::chrono_literals;
 
 VehicleStatus vehicle_status(0, 0, 0, 0);
-fsmState state = IDLE;
-int max_cones = 0;
-double t_start = 0;
-double measure_speed = 0;
-bool sim_ready = false;
-
-int sckt;
-struct sockaddr_can addr;
-const double THROTTLE_A = 7.17;       // m/s^2
-const double BRAKE_A = 12.58;         // m/s^2 (module)
-const float KP = 0;
-const float KI = 0;
-const float KD = 0;
-float error_sum = 0;
 
 class Publisher : public rclcpp::Node {
 public:
     Publisher() : Node("PID"), count_(0) {     // Node naming and init count to 0
         publisher_ = this->create_publisher<std_msgs::msg::String>("PID", 10);     // Publisher initialized with string type and topic named "topic"
         initCAN();
+
+        // Declare parameters
+        this->declare_parameter<double>("RANGE_SIGHT");
+        this->declare_parameter<double>("THROTTLE_A");
+        this->declare_parameter<double>("BRAKE_A");
+        this->declare_parameter<double>("KP");
+        this->declare_parameter<double>("KI");
+        this->declare_parameter<double>("KD");
+
+        // Retrieve parameters from .yaml file
+        RANGE_SIGHT = this->get_parameter("RANGE_SIGHT").as_double();       // in meters
+        THROTTLE_A = this->get_parameter("THROTTLE_A").as_double();       // m/s^2
+        BRAKE_A = this->get_parameter("BRAKE_A").as_double();         // m/s^2 (module)
+        KP = this->get_parameter("KP").as_double();
+        KI = this->get_parameter("KI").as_double();
+        KD = this->get_parameter("KD").as_double();
+
+        // Compute target speed
+        //target_speed = sqrt(2 * RANGE_SIGHT * BRAKE_A);
+        target_speed = 10;
+
+        RCLCPP_INFO(this->get_logger(), "Parameter set: %f, %f, %f", KP, KI, KD);
+
         //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
         //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         speed_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::readSpeed, this));
-        plot_data_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3>("plot", 10);
+
+        plot_data_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3>("plot", 10);     // Publisher for rqt_plot
         publish_data_timer_ = this->create_wall_timer(10ms, std::bind(&Publisher::send_data, this));
 
         // Timer for calculating throttle acceleration and brakes deceleration
         //check_timer_ = this->create_wall_timer(1ms, std::bind(&Publisher::check, this));
 
-        /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
-              "perception/cones", 10, std::bind(&Publisher::kinematic_lateral_control_fsm, this, _1));*/
+        // PID
+        subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
+              "perception/cones", 10, std::bind(&Publisher::PID_fsm, this, _1));
 
+        // Kinematic controller
         /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
-              "perception/cones", 10, std::bind(&Publisher::empirical_PID_fsm, this, _1));*/
+              "perception/cones", 10, std::bind(&Publisher::kinematic_controller_fsm, this, _1));*/
+
+        // "Empirical" controller
+        /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
+              "perception/cones", 10, std::bind(&Publisher::empirical_controller_fsm, this, _1));*/
 
         // To pass parameters: function, this, param1, param2, ...., param<n>
         //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
@@ -72,7 +89,100 @@ public:
         //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
     }
 
-    void kinematic_lateral_control_fsm (const eagle_msgs::msg::ConeArray & msg) {
+    void PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
+        /*
+        error  = target_speed - measured_speed
+        output = Kp * error + Ki * (sum of error over time) + Kd * (how fast the error is changing)
+        */
+        if (!sim_ready) {
+            return;
+        }
+
+        if (state == IDLE) {
+            state = ACCELERATE;
+        }
+
+        float error  = target_speed - vehicle_status.vehicle_speed;
+        error_sum += error;
+        double time = this->now().seconds();
+        if (first_iteration) {
+            time = 0.001;
+            output = KP * error + KI * error_sum + KD * (error - prev_error) / (time);
+            first_iteration = false;
+        } else {
+            output = KP * error + KI * error_sum + KD * (error - prev_error) / (time - prev_time);
+        }
+        //RCLCPP_INFO(this->get_logger(), "time_now = %f, prev_time = %f", time, prev_time);
+
+        if (time - prev_time == 0) {
+            RCLCPP_INFO(this->get_logger(), "(Time) Division by zero detected: time_now = %f, prev_time = %f", time, prev_time);
+        }
+
+        RCLCPP_INFO(this->get_logger(), "output: %f", output);
+
+        if (output >= 0) {
+            vehicle_status.throttle = std::min(output, 1.0f);      // Clamp to maximum physical range
+            vehicle_status.brake = 0;
+        } else {
+            output *= -1;
+            vehicle_status.throttle = 0;
+            vehicle_status.brake = std::min(output, 1.0f);          // Clamp to maximum physical range
+        }
+        prev_error = error;
+        prev_time = time;
+        /*
+        switch (state) {
+            case IDLE: {
+                state = ACCELERATE;
+                break;
+            }
+            case ACCELERATE: {
+                // Update space from end of finish zone
+                double space_from_finish = msg.cones.size() / 2 * 5 - 4;       // In meters (subtracting 4 meters for tolerance from last cone of finish zone)
+                // Update space required to stop
+                double braking_space_required = 0.5 * (vehicle_status.vehicle_speed * vehicle_status.vehicle_speed) / BRAKE_A;
+                // If space required to stop is inside the finish zone -> stop PID and start braking
+                if (msg.cones[msg.cones.size() - 1].color == 3 && space_from_finish <= braking_space_required) {
+                    state = BRAKE;
+                    vehicle_status.throttle = 0;
+                    vehicle_status.brake = 1;
+                } else {        // Let PID do its job
+                    float error  = target_speed - vehicle_status.vehicle_speed;
+                    error_sum += error;
+                    output = KP * error + KI * error_sum + KD * (error - prev_error) / this->now().seconds();
+                    if (output >= 0) {
+                        vehicle_status.throttle = output;
+                        vehicle_status.brake = 0;
+                    } else {
+                        output *= -1;
+                        vehicle_status.throttle = 0;
+                        vehicle_status.brake = output;
+                    }
+                    prev_error = error;
+                }
+                break;
+            }
+            case BRAKE: {
+                if (vehicle_status.vehicle_speed == 0) {
+                    state = FINISH;
+                }
+                break;
+            }
+            case FINISH: {
+                RCLCPP_INFO(this->get_logger(), "END");
+                state = END;
+                break;
+            }
+            case END: {
+                break;
+            }
+        }
+        */
+
+        update_AS_CMD();
+    }
+
+    void kinematic_controller_fsm (const eagle_msgs::msg::ConeArray & msg) {
         if (!sim_ready) {
             return;
         }
@@ -84,9 +194,10 @@ public:
                 break;
             }
             case ACCELERATE: {
+                // Update space from end of finish zone
                 double space_from_finish = msg.cones.size() / 2 * 5 - 4;       // In meters (subtracting 4 meters for tolerance from last cone of finish zone)
-                double braking_space_required = 0.5 * (vehicle_status.vehicle_speed * vehicle_status.vehicle_speed) / BRAKE_A;
                 // Update space required to stop
+                double braking_space_required = 0.5 * (vehicle_status.vehicle_speed * vehicle_status.vehicle_speed) / BRAKE_A;
                 if (msg.cones[msg.cones.size() - 1].color == 3 && space_from_finish <= braking_space_required) {
                     state = BRAKE;
                     vehicle_status.throttle = 0;
@@ -115,7 +226,7 @@ public:
         update_AS_CMD();
     }
 
-    void empirical_lateral_control_fsm (const eagle_msgs::msg::ConeArray & msg) {
+    void empirical_controller_fsm (const eagle_msgs::msg::ConeArray & msg) {
         if (!sim_ready) {
             return;
         }
@@ -153,25 +264,13 @@ public:
         update_AS_CMD();
     }
 
-    void PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
-        /*
-        error  = target_speed - measured_speed
-        output = Kp * error + Ki * (sum of error over time) + Kd * (how fast the error is changing)
-        */
-        if (!sim_ready) {
-            return;
-        }
-
-        /*
-        error  = target_speed - measured_speed;
-        error_sum += error;
-        output = KP * error + KI * error_sum + KD * (error_sum / error);
-        */
-
-    }
-
     void send_data() {
+        geometry_msgs::msg::Vector3 measurements;
+        measurements.x = 0;
+        measurements.y = vehicle_status.vehicle_speed;
+        measurements.z = target_speed;
 
+        plot_data_publisher_->publish(measurements);
     }
 
     void start_brake() {
@@ -224,16 +323,6 @@ public:
 
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Finished Test");
     }
-
-    /*
-    float compute_trhottle_a() {
-
-    }
-
-    float compute_brake_a() {
-
-    }
-    */
 
     void update_AS_CMD() {
         switch (state) {
@@ -417,6 +506,27 @@ public:
     }
 
     private:
+    fsmState state = IDLE;
+    int max_cones = 0;
+    double t_start = 0;
+    double measure_speed = 0;
+    bool sim_ready = false;
+
+    int sckt;
+    struct sockaddr_can addr;
+    float RANGE_SIGHT;       // in meters
+    double THROTTLE_A;       // m/s^2
+    double BRAKE_A;         // m/s^2 (module)
+    float KP;
+    float KI;
+    float KD;
+    float target_speed;
+    float output = 0;
+    float error_sum = 0;
+    double prev_error = 0;
+    double prev_time = 0;
+    bool first_iteration = true;
+
         // Declaration of timer, publisher and counter fields
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;

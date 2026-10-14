@@ -1,0 +1,11 @@
+PID:
+  ros__parameters:
+    # Car parameters
+    RANGE_SIGHT: 50.0      # in meters
+    THROTTLE_A: 7.17      # m/s^2
+    BRAKE_A: 12.58        # m/s^2 (module)
+    # PID tuning parameters
+    KP: 0.35
+    KI: 0.0
+    KD: 0.0
+
