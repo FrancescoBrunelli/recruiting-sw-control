@@ -56,8 +56,8 @@ public:
         KD = this->get_parameter("KD").as_double();
 
         // Compute target speed
-        //target_speed = sqrt(2 * RANGE_SIGHT * BRAKE_A);
-        target_speed = 10;
+        target_speed = sqrt(2 * RANGE_SIGHT * BRAKE_A);
+        //target_speed = 10;        // Used for PID tuning
 
         RCLCPP_INFO(this->get_logger(), "Parameter set: %f, %f, %f", KP, KI, KD);
 
@@ -98,38 +98,6 @@ public:
             return;
         }
 
-        if (state == IDLE) {
-            state = ACCELERATE;
-        }
-
-        float error  = target_speed - vehicle_status.vehicle_speed;
-        double time = this->now().seconds();
-        if (first_iteration) {
-            output = KP * error + KI * error_sum;       // Avoid division by very small time
-            first_iteration = false;
-        } else {
-            error_sum += error * (time - prev_time);
-            output = KP * error + KI * error_sum + KD * (error - prev_error) / (time - prev_time);
-        }
-        //RCLCPP_INFO(this->get_logger(), "time_now = %f, prev_time = %f", time, prev_time);
-
-        if (time - prev_time == 0 && !first_iteration) {
-            RCLCPP_INFO(this->get_logger(), "(Time) Division by zero detected: time_now = %f, prev_time = %f", time, prev_time);
-        }
-
-        RCLCPP_INFO(this->get_logger(), "output: %f", output);
-
-        if (output >= 0) {
-            vehicle_status.throttle = std::min(output, 1.0f);      // Clamp to maximum physical range
-            vehicle_status.brake = 0;
-        } else {
-            output *= -1;
-            vehicle_status.throttle = 0;
-            vehicle_status.brake = std::min(output, 1.0f);          // Clamp to maximum physical range
-        }
-        prev_error = error;
-        prev_time = time;
-        /*
         switch (state) {
             case IDLE: {
                 state = ACCELERATE;
@@ -147,17 +115,32 @@ public:
                     vehicle_status.brake = 1;
                 } else {        // Let PID do its job
                     float error  = target_speed - vehicle_status.vehicle_speed;
-                    error_sum += error;
-                    output = KP * error + KI * error_sum + KD * (error - prev_error) / this->now().seconds();
+                    double time = this->now().seconds();
+                    if (first_iteration) {
+                        output = KP * error + KI * error_sum;       // Avoid division by very small time
+                        first_iteration = false;
+                    } else {
+                        error_sum += error * (time - prev_time);
+                        output = KP * error + KI * error_sum + KD * (error - prev_error) / (time - prev_time);
+                    }
+                    //RCLCPP_INFO(this->get_logger(), "time_now = %f, prev_time = %f", time, prev_time);
+
+                    if (time - prev_time == 0 && !first_iteration) {
+                        RCLCPP_INFO(this->get_logger(), "(Time) Division by zero detected: time_now = %f, prev_time = %f", time, prev_time);
+                    }
+
+                    RCLCPP_INFO(this->get_logger(), "PID output: %f", output);
+
                     if (output >= 0) {
-                        vehicle_status.throttle = output;
+                        vehicle_status.throttle = std::min(output, 1.0f);      // Clamp to maximum physical range
                         vehicle_status.brake = 0;
                     } else {
                         output *= -1;
                         vehicle_status.throttle = 0;
-                        vehicle_status.brake = output;
+                        vehicle_status.brake = std::min(output, 1.0f);          // Clamp to maximum physical range
                     }
                     prev_error = error;
+                    prev_time = time;
                 }
                 break;
             }
@@ -176,7 +159,6 @@ public:
                 break;
             }
         }
-        */
 
         update_AS_CMD();
     }
