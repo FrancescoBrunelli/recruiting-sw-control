@@ -103,18 +103,17 @@ public:
         }
 
         float error  = target_speed - vehicle_status.vehicle_speed;
-        error_sum += error;
         double time = this->now().seconds();
         if (first_iteration) {
-            time = 0.001;
-            output = KP * error + KI * error_sum + KD * (error - prev_error) / (time);
+            output = KP * error + KI * error_sum;       // Avoid division by very small time
             first_iteration = false;
         } else {
+            error_sum += error * (time - prev_time);
             output = KP * error + KI * error_sum + KD * (error - prev_error) / (time - prev_time);
         }
         //RCLCPP_INFO(this->get_logger(), "time_now = %f, prev_time = %f", time, prev_time);
 
-        if (time - prev_time == 0) {
+        if (time - prev_time == 0 && !first_iteration) {
             RCLCPP_INFO(this->get_logger(), "(Time) Division by zero detected: time_now = %f, prev_time = %f", time, prev_time);
         }
 
