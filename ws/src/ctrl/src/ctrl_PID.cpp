@@ -61,7 +61,7 @@ public:
 
         RCLCPP_INFO(this->get_logger(), "Parameter set: %f, %f, %f", KP, KI, KD);
 
-        speed_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::readSpeed, this));
+        speed_timer_ = this->create_wall_timer(10ms, std::bind(&Publisher::readSpeed, this));
 
         plot_data_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3>("plot", 10);     // Publisher for rqt_plot
         publish_data_timer_ = this->create_wall_timer(10ms, std::bind(&Publisher::send_data, this));
@@ -81,7 +81,7 @@ public:
         /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
               "perception/cones", 10, std::bind(&Publisher::empirical_controller_fsm, this, _1));*/
 
-        send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
+        send_timer_ = this->create_wall_timer(10ms, std::bind(&Publisher::send_AS_CMD, this));
     }
 
     void PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
