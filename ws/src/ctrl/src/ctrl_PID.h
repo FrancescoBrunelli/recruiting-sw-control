@@ -5,7 +5,6 @@
 typedef enum {IDLE, ACCELERATE, BRAKE, FINISH, END} fsmState;
 
 struct VehicleStatus {
-    // false = 0; true = 1
     float throttle;
     float brake;
     bool mission_finished;
@@ -17,14 +16,7 @@ struct VehicleStatus {
         mission_finished = false;
         vehicle_speed = 0;
     }
-/*
-    VehicleStatus(bool t, bool b, bool m, double v) {
-        throttle = t;
-        brake = b;
-        mission_finished = m;
-        vehicle_speed = v;
-    }
-*/
+
     VehicleStatus(float t, float b, bool m, double v) {
         throttle = t;
         brake = b;

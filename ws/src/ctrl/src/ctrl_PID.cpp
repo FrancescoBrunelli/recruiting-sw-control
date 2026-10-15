@@ -61,8 +61,6 @@ public:
 
         RCLCPP_INFO(this->get_logger(), "Parameter set: %f, %f, %f", KP, KI, KD);
 
-        //timer_ = this->create_wall_timer(500ms, std::bind(&MinimalPublisher::timer_callback, this));    // init timer, timer_callback gets executed twice a second
-        //timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
         speed_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::readSpeed, this));
 
         plot_data_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3>("plot", 10);     // Publisher for rqt_plot
@@ -83,10 +81,7 @@ public:
         /*subscription_ = this->create_subscription<eagle_msgs::msg::ConeArray>(
               "perception/cones", 10, std::bind(&Publisher::empirical_controller_fsm, this, _1));*/
 
-        // To pass parameters: function, this, param1, param2, ...., param<n>
-        //send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this, false, false, false));
         send_timer_ = this->create_wall_timer(5ms, std::bind(&Publisher::send_AS_CMD, this));
-        //send_timer_ = this->create_wall_timer(5ms, [this] () {send_AS_CMD(true, false, false);});
     }
 
     void PID_fsm (const eagle_msgs::msg::ConeArray & msg) {
@@ -113,6 +108,7 @@ public:
                     state = BRAKE;
                     vehicle_status.throttle = 0;
                     vehicle_status.brake = 1;
+                    output = -1;        // Added for plotting
                 } else {        // Let PID do its job
                     float error  = target_speed - vehicle_status.vehicle_speed;
                     double time = this->now().seconds();
@@ -247,7 +243,7 @@ public:
 
     void send_data() {
         geometry_msgs::msg::Vector3 measurements;
-        measurements.x = 0;
+        measurements.x = output;
         measurements.y = vehicle_status.vehicle_speed;
         measurements.z = target_speed;
 
@@ -479,13 +475,6 @@ public:
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Vehicle Speed: %f m/s", readSpeed());
     }
 
-    void timer_callback(){
-        auto message = std_msgs::msg::String();
-        message.data = "Hello World!" + std::to_string(count_++);
-        RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());  // Every published message gets printed to console
-        publisher_->publish(message);
-    }
-
     private:
     fsmState state = IDLE;
     int max_cones = 0;
@@ -509,7 +498,6 @@ public:
     bool first_iteration = true;
 
         // Declaration of timer, publisher and counter fields
-        rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
         rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr plot_data_publisher_;
         size_t count_;
@@ -523,8 +511,6 @@ public:
         rclcpp::Subscription<eagle_msgs::msg::ConeArray>::SharedPtr subscription_;
 };
 
-
-
 int main(int argc, char **argv) {
 	rclcpp::init(argc, argv);
 	RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Starting ctrl Node");
@@ -535,22 +521,3 @@ int main(int argc, char **argv) {
 	rclcpp::shutdown();
 	return 0;
 }
-
-/*
-//eagle_task_as_cmd_t cmd;
-        eagle_task_veh_speed_t cmd;
-        if (eagle_task_as_cmd_unpack(&cmd, frame.data, sizeof(struct can_frame)) != 0) {
-            RCLCPP_ERROR(this->get_logger(), "Message unpack error");
-            return 0;
-        }
-
-        // Unpack and Decode message contents
-        eagle_task_veh_speed_t raw_speed;
-        if (eagle_task_veh_speed_unpack(&raw_speed, cmd.vehicle_speed, sizeof(cmd))) {
-            RCLCPP_ERROR(this->get_logger(), "Speed unpack error");
-            return 0;
-        }
-        vehicle_status.vehicle_speed = eagle_task_veh_speed_vehicle_speed_decode(raw_speed.vehicle_speed);
-
-        return vehicle_status.vehicle_speed;
- */
