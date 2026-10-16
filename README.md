@@ -150,7 +150,7 @@ Install the loaded packages:
 source install/setup.bash
 ```
 
-Finally, launch the simulation:*
+Finally, launch the simulation:
 
 ``` sh
 ros2 launch ctrl ctrl.launch.py
