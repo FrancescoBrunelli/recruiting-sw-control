@@ -13,10 +13,10 @@
 
 ``` text
 .
-├── notes.txt               // Personal notes
-├── plots
+├── personal_notes.txt               // Personal notes
+├── images
 │   ├── path_simulation.png
-│   ├── plot(KP_and_KI).png
+│   ├── plot_(KP_and_KI).png
 │   ├── plot_(KP_KI_KD).png
 │   ├── plot_(KP_only).png
 │   ├── plot(output_and_speed_during_run).png
@@ -87,8 +87,6 @@ First, clone this repository to your local machine
 git clone https://github.com/FrancescoBrunelli/recruiting-sw-control.git
 ```
 
-After cloning this repository I recommend renaming it as "ws" for simplicity (I'll use such name from now on)
-
 ### Setting up
 First, build the image `Docker/dockerfile`:
 
@@ -104,7 +102,7 @@ sudo ip link add dev vcan0 type vcan
 sudo ip link set up vcan0
 ```
 
-Verify it's status by doing
+Verify its status by doing
 
 ``` sh
 ip link show vcan0
@@ -173,4 +171,3 @@ All plots attached in the report have been made via `rqt_plot`. To show them dur
 		- `/plot/x`: displays the output provided to the car (positive means throttle, negative means brake; the code automatically clamps the values to [-1; +1])
 		- `/plot/y`: displays the car's detected speed
 		- `/plot/z`: displays the `target_speed` the PID is aiming for
-
