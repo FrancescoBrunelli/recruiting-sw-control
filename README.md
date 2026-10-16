@@ -121,7 +121,7 @@ After following the steps above we can now run the docker. We need to:
 - Pass the vcan
 - Provide access to our display
 
-To do so, run the following command inside the root of this directory (`/ws/`)
+To do so, run the following command inside the workspace directory (`/ws/`)
 
 ``` sh
 docker run -it --rm --network host -v $(pwd):/home/eagle/ws -e DISPLAY=$DISPLAY --name fsproject -v /tmp/.X11-unix:/tmp/.X11-unix fsproject
