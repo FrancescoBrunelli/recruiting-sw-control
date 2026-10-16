@@ -156,7 +156,7 @@ public:
             }
         }
 
-        update_AS_CMD();
+        update_car_status();
     }
 
     void kinematic_controller_fsm (const eagle_msgs::msg::ConeArray & msg) {
@@ -200,7 +200,7 @@ public:
             default:
                 RCLCPP_INFO(this->get_logger(), "ERROR: Switch case");
         }
-        update_AS_CMD();
+        update_car_status();
     }
 
     void empirical_controller_fsm (const eagle_msgs::msg::ConeArray & msg) {
@@ -238,7 +238,7 @@ public:
                 break;
             }
         }
-        update_AS_CMD();
+        update_car_status();
     }
 
     void send_data() {
@@ -301,7 +301,7 @@ public:
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Finished Test");
     }
 
-    void update_AS_CMD() {
+    void update_car_status() {
         switch (state) {
             case IDLE: {
                 vehicle_status.throttle = 0;
