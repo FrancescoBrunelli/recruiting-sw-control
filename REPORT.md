@@ -5,7 +5,7 @@
 - [Task Overview](#task-overview)
 - [Code Overview](#code-overview)
 - [PID Tuning](#pid-tuning)
-- [Additional Notes](#additional-notes)
+- [Additional Notes and Materials](#additional-notes-and-materials)
 - [Use of AI](#use-of-ai)
 
 ---
