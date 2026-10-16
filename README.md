@@ -88,7 +88,7 @@ git clone https://github.com/FrancescoBrunelli/recruiting-sw-control.git
 ```
 
 ### Setting up
-First, build the image `Docker/dockerfile`:
+First, build the docker image you find inside `ws/docker/dockerfile`:
 
 ``` sh
 docker build -t fsproject docker/.
